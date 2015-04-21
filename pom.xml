@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -61,29 +62,45 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 
- <dependency>
-    <groupId>org.apache.tika</groupId>
-    <artifactId>tika-core</artifactId>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
 			<version>${tika.version}</version>
-  </dependency>
+		</dependency>
 
-  <dependency>
-    <groupId>org.apache.tika</groupId>
-    <artifactId>tika-parsers</artifactId>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parsers</artifactId>
 			<version>${tika.version}</version>
-  </dependency>		
-		
-<dependency>
-	<groupId>edu.uci.ics</groupId>
-	<artifactId>crawler4j</artifactId>
-	<version>4.1</version>
-</dependency>
+		</dependency>
 
-<dependency>
-	<groupId>net.htmlparser.jericho</groupId>
-	<artifactId>jericho-html</artifactId>
-	<version>3.3</version>
-</dependency>
+		<dependency>
+			<groupId>edu.uci.ics</groupId>
+			<artifactId>crawler4j</artifactId>
+			<version>4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.htmlparser.jericho</groupId>
+			<artifactId>jericho-html</artifactId>
+			<version>3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.4.1</version>
+		</dependency>
 
 		<!-- Logging dependencies -->
 		<dependency>
@@ -104,6 +121,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.3.2</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 </project>
