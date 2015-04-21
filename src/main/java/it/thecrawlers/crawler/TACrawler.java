@@ -5,14 +5,19 @@ import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.frontier.DocIDServer;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
-
 import it.thecrawlers.model.Item;
 import it.thecrawlers.model.Review;
 import it.thecrawlers.persistence.DAO;
 import it.thecrawlers.persistence.ReviewDAO;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.*;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Questa classe rappresenta un crawler per TripAdvisor ("TA")
@@ -26,12 +31,12 @@ public class TACrawler extends WebCrawler {
 			+ "|wav|avi|mov|mpeg|ram|m4v|pdf" + "|rm|smil|wmv|swf|wma|zip|rar|gz))$");
 	private CrawlHandler handler;
 	
-	public TACrawler(){
-		super();
-	}
 	public TACrawler(CrawlHandler handler){
 		super();
 		this.handler=handler;
+	}
+	public TACrawler(){
+		super();
 	}
 	/**
 	 * You should implement this function to specify whether the given url
@@ -44,18 +49,17 @@ public class TACrawler extends WebCrawler {
 		String href = url.getURL().toLowerCase();
 		//se la risorsa e' una pagina web e appartiene a tripadvisor.it...
 	
-		if ( !FILTERS.matcher(href).matches() && href.startsWith("http://www.tripadvisor.it")){
+		if ( !FILTERS.matcher(href).matches() && href.startsWith("http://no.tripadvisor.com/")){
 			// verifico che la pagina sia tra quelle d'interesse per il crawling
 			String path=url.getPath();
+
 			result =  (path.startsWith("/Tourism"))
 					||(path.startsWith("/AllLocations")) 
 					||(path.startsWith("/Hotels")) 
-					||(path.startsWith("/Restaurants")) 
-					||(path.startsWith("/Attractions")) 
 					||(path.startsWith("/Hotel_Review")) 
-					||(path.startsWith("/Restaurant_Review"))
-					||(path.startsWith("/Attraction_Review")) ;
+					||(path.startsWith("/ExpandedUserReviews")) ;
 
+			result = result && path.contains("Trysil_Municipality_Hedmark_Eastern_Norway");
 		}
 		
 		return result;
@@ -74,7 +78,14 @@ public class TACrawler extends WebCrawler {
 			if (page.getParseData() instanceof HtmlParseData) {
 				HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
 				String html = htmlParseData.getHtml(); //ottengo l'html dalla Page
-			
+
+				String fileNameFormPath = path.replaceAll("[^a-zA-Z0-9.-]", "_");				
+				try {
+					FileUtils.writeStringToFile(new File("d:/temp/crawldata", fileNameFormPath), html);
+				} catch (IOException e) {
+					logger.error("Cannot write page to the file", e);;
+				}
+				
 				//prendo l'id dell'item 
 				String idItem = handler.parseItemIdFromPath(path);
 				//prendo le recensioni (effettuo il parsing)

@@ -33,7 +33,7 @@ private static ServiceRegistry serviceRegistry;
     }
     private static SessionFactory configureSessionFactory() throws HibernateException {
         Configuration configuration = new Configuration();
-        configuration.configure("it/thecrawlers/persistence/hibernate.cfg.xml");
+        configuration.configure("hibernate.cfg.xml");
         serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         return sessionFactory;

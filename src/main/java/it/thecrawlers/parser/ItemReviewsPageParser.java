@@ -2,12 +2,19 @@ package it.thecrawlers.parser;
 
 import it.thecrawlers.model.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.htmlparser.jericho.Source;
 import net.htmlparser.jericho.Element;
@@ -23,6 +30,8 @@ import net.htmlparser.jericho.Element;
  * @author thecrawlers
  */
 public class ItemReviewsPageParser {
+	private static final Logger logger = LoggerFactory.getLogger(ItemReviewsPageParser.class);
+	
 	private Map<String, Integer> monthName2int;
 
 	/**
@@ -83,6 +92,12 @@ public class ItemReviewsPageParser {
 
 		} catch (Exception ex) {}
 
+		List<Element> reviewElems = source.getAllElementsByClass("reviewSelector");
+		for (Element element : reviewElems) {
+			String id = element.getAttributeValue("id");
+			logger.debug(id);
+		}
+		
 		Item item = new Item(itemID, description);
 		item.setTotalReviewsCount(totalReviewsCount);
 
@@ -142,11 +157,24 @@ public class ItemReviewsPageParser {
 						+ rev.getAttributeValue("id").substring(7); // "review_1352800"
 																	// -->
 																	// "r1352800"
+
+				if (rev.getChildElements().isEmpty()) continue;
+				
 				//estraggo "date"
-				String raw_date = rev.getFirstElementByClass("ratingDate")
-						.getContent().toString(); // "Recensito il 28 giugno 2009",
-													// "Ieri"
-				Date date = parseRawDate(raw_date);
+				
+				String raw_date = null;
+				Element ratingDateElem = rev.getFirstElementByClass("ratingDate");
+				if (ratingDateElem != null) {
+					raw_date = ratingDateElem.getAttributeValue("title");
+					if (StringUtils.isEmpty(raw_date)) {
+		                raw_date = ratingDateElem.getContent().toString(); // ">Reviewed January 30, 2015",
+		                raw_date = raw_date.substring(9);						
+					}
+				}
+				Date date = null;
+				if (!StringUtils.isEmpty(raw_date)) {
+					date = parseRawDate(StringUtils.strip(raw_date));
+				}
 
 				// Potremmo voler estrarre anche il titolo della review (non funziona sempre)
 				//estraggo "reviewTitle"
@@ -161,8 +189,8 @@ public class ItemReviewsPageParser {
 
 				//estraggo "value"
 				String raw_value = rev
-						.getFirstElementByClass("sprite-ratings")
-						.getAttributeValue("alt"); // "3 stelle su 5"
+						.getFirstElementByClass("sprite-rating_s_fill")
+						.getAttributeValue("alt"); // 4 of 5 stars
 				
 				int int_value = Integer.parseInt(raw_value.substring(0,
 						raw_value.indexOf(" ")));
@@ -197,12 +225,7 @@ public class ItemReviewsPageParser {
 				parsedReviews.add(newReview);
 
 			} catch (Exception e) {
-				// errore durante il parsing di una review
-				System.out.println("!!!--------Errore nel parsing di una review nella pagina:");
-				System.out.println(path);
-				System.out.println("Eccezione: " + e.getMessage());
-				// forse qui potremmo anche tenere traccia degli errori di parsing (ad es.
-				// del numero di review saltate x errori)
+				logger.error("Parsing error on page ["+path+"]", e);
 			}
 
 		}
@@ -216,25 +239,11 @@ public class ItemReviewsPageParser {
 	 * 
 	 * @param raw_date
 	 * @return
+	 * @throws ParseException 
 	 */
-	private Date parseRawDate(String raw_date) {
-		// la stringa in input è del tipo "Recensito il 15 giugno 2012"
-		Date date = null;
-		String[] dateParts = raw_date.substring(13).trim().split(" ");
-		String giorno = dateParts[0];
-		String mese = dateParts[1].toLowerCase();
-		String anno = dateParts[2].substring(0, 4);
-		int gg = Integer.parseInt(giorno);
-		int mm = 0;
-		if (this.monthName2int.containsKey(mese))
-			mm = (int) this.monthName2int.get(mese);
-		int aa = Integer.parseInt(anno);
-
-		Calendar cal = Calendar.getInstance();
-		cal.set(aa, mm, gg);
-		date = cal.getTime();
-
-		return date;
+	private Date parseRawDate(String raw_date) throws ParseException {
+		//sample April 10, 2015
+		return new SimpleDateFormat("MMM dd, yyyy",  Locale.ENGLISH).parse(raw_date);
 	}
 
 

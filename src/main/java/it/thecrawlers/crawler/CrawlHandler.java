@@ -152,7 +152,7 @@ public class CrawlHandler{
 		 * which are found in these pages
 		 */
 
-		controller.addSeed("http://www.tripadvisor.it/");
+		controller.addSeed("http://no.tripadvisor.com/Hotels-g1006204-Trysil_Municipality_Hedmark_Eastern_Norway-Hotels.html");
 		//controller.addSeed("http://www.tripadvisor.it/Hotel_Review-g189541-d206741-Reviews-Radisson_BLU_Royal_Hotel-Copenhagen_Zealand.html");
 		//controller.addSeed("http://www.tripadvisor.it/Hotel_Review-g189473-d1472362-Reviews-Hotel_Atlantis-Thessaloniki_Thessaloniki_Region_Central_Macedonia.html");
 		//controller.addSeed("http://www.tripadvisor.it/Hotel_Review-g186338-d193121-Reviews-The_Milestone_Hotel-London_England.html");
