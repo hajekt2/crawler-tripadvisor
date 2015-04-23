@@ -1,9 +1,7 @@
 package it.thecrawlers.parser;
 
 import it.thecrawlers.model.Item;
-import it.thecrawlers.model.ItemType;
 import it.thecrawlers.model.Review;
-import it.thecrawlers.model.ReviewValue;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -65,18 +63,9 @@ public class ItemReviewsPageParser {
 			logger.debug(id);
 		}
 		
-		Item item = new Item(itemID, description);
-		item.setTotalReviewsCount(totalReviewsCount);
+		Item item = null;// = new Item(itemID, description);
+//		item.setTotalReviewsCount(totalReviewsCount);
 
-		String typeName = pathFields[0].substring(1, path.indexOf("_")); // es: "/Hotel_Review" >> "Hotel"
-		if (typeName.equals("Hotel"))
-			item.setType(ItemType.hotel);
-		else if (typeName.equals("Restaurant"))
-			item.setType(ItemType.restaurant);
-		else if (typeName.equals("Attraction"))
-			item.setType(ItemType.attraction);
-		else
-			System.out.println("Tipo di Item non riconosciuto, valore in input: '" + typeName + "'");
 		return item;
 	}
 
@@ -134,27 +123,9 @@ public class ItemReviewsPageParser {
 				if ((int_value < 1)||(int_value>5))
 					throw new Exception("Il valore '" + int_value + "' non corrisponde ad un voto valido! (1-5)");
 				
-				ReviewValue rv = null;
-				switch (int_value) {
-				case 1:
-					rv = ReviewValue.veryBad;
-					break;
-				case 2:
-					rv = ReviewValue.bad;
-					break;
-				case 3:
-					rv = ReviewValue.medium;
-					break;
-				case 4:
-					rv = ReviewValue.good;
-					break;
-				case 5:
-					rv = ReviewValue.veryGood;
-					break;
-				}
 						
-				Review newReview = new Review(reviewID, date, reviewTitle, rv);
-				parsedReviews.add(newReview);
+//				Review newReview = new Review(reviewID, date, reviewTitle, rv);
+				parsedReviews.add(null);
 			} catch (Exception e) {
 				logger.error("Parsing error on page ["+path+"]", e);
 			}

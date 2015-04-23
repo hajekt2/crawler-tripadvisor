@@ -1,6 +1,6 @@
 package it.thecrawlers;
 
-import it.thecrawlers.crawler.CrawlConfigurer;
+import it.thecrawlers.crawler.ExtendableCrawlerController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +16,9 @@ public class ApplicationMain {
 
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"applicationContext.xml");
-		CrawlConfigurer crawlerConfigurer = BeanFactoryUtils.beanOfType(ctx, CrawlConfigurer.class);
+		ExtendableCrawlerController controller = BeanFactoryUtils.beanOfType(ctx, ExtendableCrawlerController.class);
 		try {
-			crawlerConfigurer.start();
+			controller.start("http://no.tripadvisor.com/Hotels-g1006204-Trysil_Municipality_Hedmark_Eastern_Norway-Hotels.html");
 		} catch (Exception e) {
 			logger.error("Crawler initializaton failed", e);
 		}		

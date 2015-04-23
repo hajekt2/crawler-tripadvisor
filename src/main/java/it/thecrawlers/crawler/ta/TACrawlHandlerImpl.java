@@ -27,13 +27,16 @@ public class TACrawlHandlerImpl implements CrawlHandler {
 	static final Logger logger = LoggerFactory.getLogger(TACrawlHandlerImpl.class);
 
 	@Autowired
+	private CrawlController crawlController;
+	
+	@Autowired
 	private ItemReviewsPageParser parser;
 
 	private Map<String, Item> idToItem = new HashMap<String, Item>();
 	private int reviewCount = 0;
 
 	@Override
-	public void processPage(Page page, CrawlController crawlController) {
+	public void processPage(Page page) {
 		String path = page.getWebURL().getPath();
 		
 		if (isItemReviewsPage(path) ){
@@ -115,9 +118,9 @@ public class TACrawlHandlerImpl implements CrawlHandler {
 	}
 
 	private void addNewItem(Item item) {
-		String id = item.getItemId();
-		System.out.println(id);
-		this.idToItem.put(id, item);
+//		String id = item.getItemId();
+//		System.out.println(id);
+//		this.idToItem.put(id, item);
 	}
 
 	private List<Review> parseReviews(String html, String path) {

@@ -46,7 +46,7 @@ public class FilteredCrawler extends WebCrawler {
 	@Override
 	public void visit(Page page) {
 		logger.trace("visiting {}", page.getWebURL().getURL());	
-		handler.processPage(page, this.getMyController());
+		handler.processPage(page);
 	}
 	
 }

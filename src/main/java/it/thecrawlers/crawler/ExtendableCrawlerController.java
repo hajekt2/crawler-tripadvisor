@@ -22,6 +22,10 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
@@ -34,12 +38,20 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
  * supplied Crawler factory, instead of suppling class of Crawler to be
  * automatically instantiated.
  */
+@Component
 public class ExtendableCrawlerController extends CrawlController {
 
 	static final Logger logger = LoggerFactory.getLogger(ExtendableCrawlerController.class);
 
-	public ExtendableCrawlerController(CrawlConfig config, PageFetcher pageFetcher, RobotstxtServer robotstxtServer)
-			throws Exception {
+	@Autowired
+	private CrawlerFactory crawlerFactory;
+	@Value("${numberOfCrawlers}")	
+	private int numberOfCrawlers;
+	
+	@Autowired
+	public ExtendableCrawlerController(@Qualifier("crawlConfig") CrawlConfig config, 
+			@Qualifier("pageFetcher") PageFetcher pageFetcher, 
+			@Qualifier("robotstxtServer") RobotstxtServer robotstxtServer) throws Exception {
 		super(config, pageFetcher, robotstxtServer);
 	}
 
@@ -55,7 +67,7 @@ public class ExtendableCrawlerController extends CrawlController {
 	 * @param <T>
 	 *            Your class extending WebCrawler
 	 */
-	public <T extends WebCrawler> void start(final CrawlerFactory crawlerFactory, final int numberOfCrawlers) {
+	public <T extends WebCrawler> void start(@Qualifier("crawlerFactory") final CrawlerFactory crawlerFactory, @Value("${numberOfCrawlers}") final int numberOfCrawlers) {
 		this.start(crawlerFactory, numberOfCrawlers, true);
 	}
 
@@ -71,7 +83,7 @@ public class ExtendableCrawlerController extends CrawlController {
 	 * @param <T>
 	 *            Your class extending WebCrawler
 	 */
-	public <T extends WebCrawler> void startNonBlocking(final CrawlerFactory crawlerFactory, final int numberOfCrawlers) {
+	public <T extends WebCrawler> void startNonBlocking(@Qualifier("crawlerFactory") final CrawlerFactory crawlerFactory, @Value("${numberOfCrawlers}") final int numberOfCrawlers) {
 		this.start(crawlerFactory, numberOfCrawlers, false);
 	}
 
@@ -80,7 +92,7 @@ public class ExtendableCrawlerController extends CrawlController {
 	 * project for review, otherwise have to reimplement this with every new
 	 * release of their code
 	 */
-	protected <T extends WebCrawler> void start(final CrawlerFactory crawlerFactory, final int numberOfCrawlers,
+	protected <T extends WebCrawler> void start(@Qualifier("crawlerFactory") final CrawlerFactory crawlerFactory, @Value("${numberOfCrawlers}") final int numberOfCrawlers,
 			boolean isBlocking) {
 		try {
 			finished = false;
@@ -198,6 +210,11 @@ public class ExtendableCrawlerController extends CrawlController {
 		} catch (Exception e) {
 			logger.error("Error happened", e);
 		}
+	}
+
+	public void start(String seed) {
+		this.addSeed(seed);
+		this.start(crawlerFactory, numberOfCrawlers);		
 	}
 
 }
