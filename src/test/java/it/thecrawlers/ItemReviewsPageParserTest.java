@@ -1,3 +1,4 @@
+package it.thecrawlers;
 import it.thecrawlers.model.Review;
 import it.thecrawlers.parser.ItemReviewsPageParser;
 

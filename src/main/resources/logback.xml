@@ -15,11 +15,12 @@
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level [%X{user}] %logger{36} - %msg%n</pattern>
+			<pattern>%d{HH:mm:ss.SSS} [%-10thread] %-5level %logger{36} %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<logger name="net.htmlparser.jericho" level="OFF" />
+	<logger name="it.thecrawlers" level="TRACE" />
 
 	<root>
 		<level value="INFO" />
