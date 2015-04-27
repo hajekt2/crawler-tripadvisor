@@ -2,50 +2,45 @@ package it.thecrawlers.model;
 
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Item")
-public class Item {
+@Table(name="Location")
+public class Location {
 
 	@Id
-	@Column(name="itemId")
+	@Column(name="locationId")
 	private String id;
 	
 	@Column(name="name")
 	private String name;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name = "itemId")	
-	private Set<Review> reviews;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "parentId")
+    private Location parent;
 	
 	@Column(name="crawlDate")
 	private Date crawlDate;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "locationId")
-	private Location location;	
-
-	@Column(name="url")
-	private String url;	
-	
-	public Item(){
+	public Location(){
 		super();
-		reviews = new HashSet<Review>();
 		crawlDate = new Date(System.currentTimeMillis());
 	}
 	
+	public Location(String id, String name, Location parent) {
+		this();
+		this.id = id;
+		this.name = name;
+		this.parent = parent;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -62,14 +57,6 @@ public class Item {
 		this.name = name;
 	}
 
-	public Set<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(Set<Review> reviews) {
-		this.reviews = reviews;
-	}
-
 	public Date getCrawlDate() {
 		return crawlDate;
 	}
@@ -78,37 +65,50 @@ public class Item {
 		this.crawlDate = crawlDate;
 	}
 
-	public Location getLocation() {
-		return location;
+	public Location getParent() {
+		return parent;
 	}
 
-	public void setLocation(Location location) {
-		this.location = location;
+	public void setParent(Location parent) {
+		this.parent = parent;
 	}
 
-	public String getUrl() {
-		return url;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Location other = (Location) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Item [id=");
+		builder.append("Location [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
-		builder.append(", reviews=");
-		builder.append(reviews);
+		builder.append(", parent=");
+		builder.append(parent);
 		builder.append(", crawlDate=");
 		builder.append(crawlDate);
-		builder.append(", location=");
-		builder.append(location);
-		builder.append(", url=");
-		builder.append(url);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -40,7 +40,6 @@ public class ItemReviewsPageParserTest {
 		Item item = parser.parseItem(FileUtils.readFileToString(new File(testFileUrl.getPath())), reviewFileName, reviewFileName);
 		logger.debug(item.toString());
 		assertEquals("d2440155", item.getId());
-		assertEquals("g1006204", item.getLocationId());
 	}
 
 	@Test

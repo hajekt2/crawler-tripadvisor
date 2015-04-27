@@ -19,6 +19,7 @@
 	<logger name="net.htmlparser.jericho" level="OFF" />
 	<logger name="it.thecrawlers" level="TRACE" />
 	<logger name="org.apache.http.client.protocol.ResponseProcessCookies" level="ERROR" />
+	<logger name="it.thecrawlers.utils.HttpClientPool" level="INFO" />
 
 	<root>
 		<level value="INFO" />

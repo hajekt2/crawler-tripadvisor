@@ -14,6 +14,7 @@ import java.util.Set;
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.Source;
 
+import org.apache.commons.collections4.map.LinkedMap;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,12 +48,48 @@ public class ItemReviewsPageParser {
 			item.setName(pathFields[pathFields.length - 2].replace("_", " "));
 		}
 		item.setUrl(url);	
-		item.setLocationId(pathFields[1]);
-		// String locationName = pathFields[pathFields.length - 1].substring(0, IndexOf(".") - 1);
 		item.setCrawlDate(new Date());
 		return item;
 	}
 
+	/*	    Location example:
+	 * 		<ul class="breadcrumbs" id="BREADCRUMBS">
+		      <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+		        <a href="/Tourism-g4-Europe-Vacations.html" itemprop="url"
+		        onclick="ta.setEvtCookie(&#39;Breadcrumbs&#39;, &#39;click&#39;, &#39;Continent&#39;, 1, this.href);">
+		          <span itemprop="title">Europa</span>
+		        </a>
+		        <span class="separator">
+		          <img src="http://e2.tacdn.com/img2/x.gif" class="sprite-arrow_green_right" alt="" />
+		        </span>
+		      </li>
+		      <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+		        <a href="/Tourism-g190455-Norway-Vacations.html" itemprop="url"
+		        onclick="ta.setEvtCookie(&#39;Breadcrumbs&#39;, &#39;click&#39;, &#39;Country&#39;, 2, this.href);">
+		          <span itemprop="title">Norge</span>
+		        </a>
+		        <span class="separator">
+		          <img src="http://e2.tacdn.com/img2/x.gif" class="sprite-arrow_green_right" alt="" />
+		        </span>
+		      </li>
+		    </ul>
+	*/		
+	public LinkedMap<String, String> parseLocations(String html, String path) {
+		Source source = new Source(html);
+		LinkedMap<String, String> locationMap = new LinkedMap<String, String>();
+
+		List<Element> locationLiElements = source.getElementById("BREADCRUMBS").getChildElements();
+		for (Element element : locationLiElements) {
+			String locationName = element.getContent().getRenderer().toString();
+			String href = element.getChildElements().get(0).getAttributeValue("href");
+			String[] hrefSplit = href.split("-");
+			String locationId = hrefSplit[1];
+			if (!locationMap.containsKey(locationId))
+				locationMap.put(locationId, locationName);
+		}		
+		return locationMap;
+	}
+	
 	public Set<Review> parseReviews(String html, String path) {
 		Source source = new Source(html);
 		Set<Review> parsedReviews = new HashSet<Review>();

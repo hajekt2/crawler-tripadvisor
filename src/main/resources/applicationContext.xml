@@ -33,6 +33,7 @@
 			<list>
 				<value>it.thecrawlers.model.Item</value>
 				<value>it.thecrawlers.model.Review</value>
+				<value>it.thecrawlers.model.Location</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
