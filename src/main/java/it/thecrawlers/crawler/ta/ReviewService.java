@@ -85,13 +85,12 @@ public class ReviewService {
 		}
 	}
 
-	private void saveStringToFile(String path, String htmlContent) {
+	private void saveStringToFile(File folder, String path, String htmlContent) {
 		String fileNameFormPath = path.replaceAll("[^a-zA-Z0-9.-]", "_");
 		try {
-			FileUtils.writeStringToFile(new File("d:/temp/crawldata", fileNameFormPath), htmlContent);
+			FileUtils.writeStringToFile(new File(folder, fileNameFormPath), htmlContent);
 		} catch (IOException e) {
 			logger.error("Cannot write page to the file", e);
-			;
 		}
 	}
 
