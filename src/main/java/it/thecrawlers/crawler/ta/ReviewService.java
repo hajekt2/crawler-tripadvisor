@@ -22,9 +22,7 @@ import org.springframework.stereotype.Component;
 public class ReviewService {
 
 	static final Logger logger = LoggerFactory.getLogger(ReviewService.class);
-	
-//	@Autowired
-//	private CrawlController crawlController;
+
 	@Autowired
 	private ItemReviewsPageParser parser;
 	@Autowired
@@ -33,57 +31,72 @@ public class ReviewService {
 	private ItemDAO itemDao;
 	@Autowired
 	private ReviewDAO reviewDao;
-	
-	public void processReviewPage(String url, String path, String htmlContent) {
-		if (parser.isItemReviewsPage(path) ){
-				Item item = parser.parseItem(htmlContent, path, url);
-				
-				if (itemDao.exists(item.getId())) {
-					item = itemDao.findOne(item.getId());
-					item.setCrawlDate(new Date());
-				}				
-				
-				Set<Review> reviews = parser.parseReviews(htmlContent, path);
-				if (!reviews.isEmpty()) {
-					ArrayList<String> revStringList = new ArrayList<String>();
-					for (Review review : reviews) {
-						revStringList.add(review.getId());
-					}
-					String expandedUserReviewHtml = null;
-					try {
-						expandedUserReviewHtml = reviewFetcher.getExpandedUserReview(item.getId(), item.getLocationId(),
-							revStringList);
-					} catch (IOException e) {
-						logger.error("Failed to retrieve ExpandedUserReview", e);
-					}
-					if (expandedUserReviewHtml != null)
-						parser.parseExpandedUserReview(expandedUserReviewHtml, reviews);
 
-					if (item.getReviews().isEmpty()) {
-						item.getReviews().addAll(reviews);
-					} else {
-						for (Review review : reviews) {
-							if (!reviewDao.exists(review.getId())) {
-								item.getReviews().add(review);
-							} else {
-								// TODO:update review with new one
-							}
-						}
+	public void processReviewPage(String url, String path, String htmlContent) {
+		if (parser.isItemReviewsPage(path)) {
+			//parse item
+			Item item = parser.parseItem(htmlContent, path, url);
+			
+			//if item exists in db then use version stored in db
+			if (itemDao.exists(item.getId())) {
+				item = itemDao.findOne(item.getId());
+				item.setCrawlDate(new Date());
+				//TODO:update also other fields if changed
+			}
+
+			//parse review details (but not text sine it is not always complete)
+			Set<Review> reviews = parser.parseReviews(htmlContent, path);
+			if (reviews.isEmpty())
+				return;
+
+			//create a list of full text reviews for ids that should be fetched
+			ArrayList<String> revStringList = new ArrayList<String>();
+			if (!item.getReviews().isEmpty()) {
+				//fetch only reviews that are not in db
+				for (Review review : reviews) {
+					if (!item.getReviews().contains(review))
+						revStringList.add(review.getId());
+				}				
+			} else {			
+				//no reviews exists for thir item so fetch all
+				for (Review review : reviews) {
+					revStringList.add(review.getId());
+				}
+			}
+			
+			String expandedUserReviewHtml = null;
+			try {
+				expandedUserReviewHtml = reviewFetcher.getExpandedUserReview(item.getId(), item.getLocationId(),
+						revStringList);
+			} catch (IOException e) {
+				logger.error("Failed to retrieve ExpandedUserReview", e);
+			}
+			if (expandedUserReviewHtml != null)
+				parser.parseExpandedUserReview(expandedUserReviewHtml, reviews);
+
+			if (item.getReviews().isEmpty()) {
+				item.getReviews().addAll(reviews);
+			} else {
+				for (Review review : reviews) {
+					//it should always be true that review does not exists
+					if (!reviewDao.exists(review.getId())) {
+						item.getReviews().add(review);
 					}
 				}
-				item = itemDao.save(item);
-				
-//				saveStringToFile(path, htmlContent);				
 			}
+			item = itemDao.save(item);
+
 		}
+	}
 
 	private void saveStringToFile(String path, String htmlContent) {
-		String fileNameFormPath = path.replaceAll("[^a-zA-Z0-9.-]", "_");				
+		String fileNameFormPath = path.replaceAll("[^a-zA-Z0-9.-]", "_");
 		try {
 			FileUtils.writeStringToFile(new File("d:/temp/crawldata", fileNameFormPath), htmlContent);
 		} catch (IOException e) {
-			logger.error("Cannot write page to the file", e);;
+			logger.error("Cannot write page to the file", e);
+			;
 		}
 	}
-	
+
 }
