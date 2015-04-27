@@ -1,0 +1,1912 @@
+<div id="expanded_review_264384292">
+<a name="UR264384292"></a>
+<div id="UR264384292" class="extended provider91 first">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_A0C87E25D4E0A92AFCA341B44AFEC09E-SRC_264384292" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_A0C87E25D4E0A92AFCA341B44AFEC09E ">
+<a onclick=>
+<script type="text/javascript">
+ta.store('friendAvatarSwitcherObj', (function() {
+var AVATAR_CLASS_GUID_REGEX = /\bavatarGUID:(\w+)\b/; // Class that contains the GUID of the member
+//  whose avatar it's on.
+var AVATAR_CLASS = 'potentialFacebookAvatar';         // Signal class for Mootools parsing of the DOM.
+var AVATAR_CLASS_SELECTOR = '.' + AVATAR_CLASS;       // Selector needed for Mootools $$ function.
+var guidToImgMap = {};        // mapping of member guids to avatar img tags
+var friendGuidToSrcMap = {};  // mapping of friend guids* to facebook profile pic src values
+//  *only ever contains guids of people with avatar img tags on page
+var friendGuids = [];         // array of friend guids*, used because IE doesn't like for-each loops
+//  *only ever contains guids of people with avatar img tags on page
+return {
+// Finds all avatars on the page that match the signal class, and stores them
+// in a map for later replacement.
+findAvatarsOnPage: function() {
+$$(AVATAR_CLASS_SELECTOR).each(function (avatarImg) {
+var guid = avatarImg.className.match(AVATAR_CLASS_GUID_REGEX);
+if (guid && guid[1]) { // based on how JS regex works, guid[1] is the user's guid
+guidToImgMap[guid[1]] = avatarImg; // associate the guid with the img tag
+}
+});
+},
+// Replaces all avatars on the page with the correct FB avatars, using
+// the maps of GUIDs to img tags and FB profile src values.
+replaceAvatarsOnPage: function() {
+for (var i = 0; i < friendGuids.length; i++) { // because IE doesn't like for-each loops
+var avatarImg = guidToImgMap[friendGuids[i]]
+avatarImg.src = friendGuidToSrcMap[friendGuids[i]];
+avatarImg.className = avatarImg.className.replace(AVATAR_CLASS_GUID_REGEX, '').replace(AVATAR_CLASS, '');
+}
+},
+// Checks if guid is already in map of avatar img guids, and
+// if it is, adds it to map of guids to be converted. This is called
+// by a different file, such as friends_avatar_data_js.vm.
+checkAndAddGuidAndSrc: function(guid, src) {
+if (guidToImgMap.hasOwnProperty(guid)) {
+friendGuids.push(guid);
+friendGuidToSrcMap[guid] = src;
+}
+}
+}
+})());
+// Make the partial request, and set our response behavior.
+ta.merge('facebook.data.params', {uid: 'A0C87E25D4E0A92AFCA341B44AFEC09E'});          if(ta.keep) {
+ta.keep('facebook.data.request', 'FRIEND_AVATARS');
+}
+ta.keep('facebook.data.onAvail.FRIEND_AVATARS', function() {
+ta.retrieve('friendAvatarSwitcherObj').replaceAvatarsOnPage();
+});
+ta.queueForLoad(function() { // just in case we have the ta object before the DOM is fully initialized
+ta.retrieve('friendAvatarSwitcherObj').findAvatarsOnPage(); // as soon as we can, start parsing the DOM for avatars
+}, "findAvatarsOnPage");
+</script>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/02/d2/2d/85/facebook-avatar.jpg" class="avatar potentialFacebookAvatar avatarGUID:A0C87E25D4E0A92AFCA341B44AFEC09E" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_A0C87E25D4E0A92AFCA341B44AFEC09E" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Gudbrand T</span>
+</div>
+</div>
+<div class="location">
+Oslo, Norge
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_A0C87E25D4E0A92AFCA341B44AFEC09E-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -10, -50);">
+<div class="reviewerTitle">Senioranmelder</div>
+<img src="http://e2.tacdn.com/img2/x.gif" alt="13 anmeldelser" class="icon badge_contributor sprite-badge_contributor" width="25" height="24">
+<span class="badgeText">13 anmeldelser</span>
+<div class="contributionReviewBadge">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="" class="icon badge_hotels_1st sprite-badge_hotels_1st" width="25" height="24">
+<span class="badgeText">5 anmeldelser av hotell</span>
+</div> </div>
+<div id="UID_A0C87E25D4E0A92AFCA341B44AFEC09E-HV" class="helpfulVotesBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','helpful_count'); ta.util.cookie.setPIDCookie('15983'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -22, -50);">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="7 nyttige stemmer" class="icon badge_helpful sprite-badge_helpful" width="25" height="24">
+<span class="badgeText">7 nyttige stemmer</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r264384292-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r264384292">&#x201c;<span class='noQuotes'>Flott beliggenhet, sviktende komfort</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+<span class="ratingDate relativeDate" title='7 april 2015'>Anmeldt 2 uker siden
+</span>
+</div>
+<div class="entry">
+<p>
+Hotellet er et stort og moderne anlegg med mange fasiliteter og en flott, naturskjønn beliggenhet. God og omfangsrik frokostbuffet. God dobbeltsenger som ikke sklir fra hverandre. Dessverre funker ikke alt like bra, og varmtvann i dusjen på rommet kom bare støtvis. Måtte bytte rom på grunn av høylydt støy fra restaurant Barken i det første. Fikk ikke nye håndkler (til tross for at de var lagt på gulvet) og oppreing av senger på en av dagene. Det siste rommet manglet tørkeskap, og i skirommet var ventilasjonen for svak til å få tørre støvler om morgenen.
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde april 2015, reiste som et par</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Verdi</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Sted</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss20" src="http://e2.tacdn.com/img2/x.gif" alt="2 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<p>Anmeldelse samlet inn i partnerskap med Park Inn by Radisson Hotels <span class="sprite-info_grn info_grn" onclick="ta.call('ta.overlays.Factory.showPartnerAttributionTip', event, this.parentNode, 'Denne forretningen bruker nettbaserte verktøy og ressurser gitt av TripAdvisor for å oppmuntre til og samle inn anmeldelser (inkludert denne) fra gjestene sine.');"></span></p>
+<div id="helpfulq264384292_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq264384292 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3dmvdXAX0tEn1X3dmvdXAX0zH1UKK3XKd0pSM1bKfvkzsXoxMdzsKbAXbqnfbmdU7ddbqnzsfKAzs0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra en individuell reisende og ikke fra TripAdvisor LLC eller noen av våre partnere.
+<div class="expandedProblem ">
+<span id="ReportIAP_264384292" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '264384292'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date relativeDate" title='13 april 2015'>1 uke siden</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=265407109&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_264384292">
+Hej Gudbrand T,<br/><br/>Tack så mycket för att du tog dig tid att dela med dig av din upplevelse hos oss. Jag ber om ursäkt för att vi inte nådde upp till dina förväntningar gällande komforten på hotellet. Vi jobbar ständigt med förbättringar och jag tackar för din feedback. Jag hoppas vi får möjligheten att välkomna dig tillbaka till Trysil igen.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_265407109" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:265407109, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_265407109" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC eller noen av dets partnere.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ad iab_inlineBanner">
+<div id="gpt-ad-468x60" class="adInner gptAd"></div>
+</div>
+</div>
+<div id="expanded_review_265407109">
+<a name="UR265407109"></a>
+<div id="UR265407109" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r265407109-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r265407109">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate relativeDate" title='13 april 2015'>Anmeldt 1 uke siden
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=265407109&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Gudbrand T,<br/><br/>Tack så mycket för att du tog dig tid att dela med dig av din upplevelse hos oss. Jag ber om ursäkt för att vi inte nådde upp till dina förväntningar gällande komforten på hotellet. Vi jobbar ständigt med förbättringar och jag tackar för din feedback. Jag hoppas vi får möjligheten att välkomna dig tillbaka till Trysil igen.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq265407109_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq265407109 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3odKkUKA0tEn1X3odKkUKA0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_265407109" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '265407109'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_263525319">
+<a name="UR263525319"></a>
+<div id="UR263525319" class="extended provider91">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_00E38C039B998F4BAF229217DFD7D68E-SRC_263525319" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_00E38C039B998F4BAF229217DFD7D68E ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/01/2a/fd/9d/avatar.jpg" class="avatar potentialFacebookAvatar avatarGUID:00E38C039B998F4BAF229217DFD7D68E" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_00E38C039B998F4BAF229217DFD7D68E" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Odd Andre F</span>
+</div>
+</div>
+<div class="location">
+Sykkylven, Norway
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_00E38C039B998F4BAF229217DFD7D68E-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -25, -50);">
+<span class="badgeText">1 anmeldelse</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r263525319-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r263525319">&#x201c;<span class='noQuotes'>ok</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+<span class="ratingDate relativeDate" title='3 april 2015'>Anmeldt 3 uker siden
+</span>
+</div>
+<div class="entry">
+<p>
+Hotellet er topp! Beliggenhet er topp! Resepskonistene er arogante! Som gjest blir du ikke respektert og blir beskylt for å lyge og resepsjonisten sier bare &quot; påstand mot påstand!&quot; på tross av at du som gjest har skriftelig bevis på det motsatte! (epost). Resepsjonisten skal dekke sin økonomiske og personlige &quot;rygg&quot; og valse over deg som gjest!
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde april 2015, reiste som et par</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Verdi</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sted</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss20" src="http://e2.tacdn.com/img2/x.gif" alt="2 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss10" src="http://e2.tacdn.com/img2/x.gif" alt="1 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Anmeldelse samlet inn i partnerskap med Park Inn by Radisson Hotels <span class="sprite-info_grn info_grn" onclick="ta.call('ta.overlays.Factory.showPartnerAttributionTip', event, this.parentNode, 'Denne forretningen bruker nettbaserte verktøy og ressurser gitt av TripAdvisor for å oppmuntre til og samle inn anmeldelser (inkludert denne) fra gjestene sine.');"></span></p>
+<div id="helpfulq263525319_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq263525319 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3moXomUA0tEn1X3moXomUA0zH1UKK3XKd0pSM1KKzsmvfKmA7AAvqnd7bqnXXAXUkxMqnxMkxM3vzs0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra en individuell reisende og ikke fra TripAdvisor LLC eller noen av våre partnere.
+<div class="expandedProblem ">
+<span id="ReportIAP_263525319" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '263525319'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date relativeDate" title='13 april 2015'>1 uke siden</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=265405374&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_263525319">
+Hej Odd Andre F,<br/><br/>Det var tråkigt att läsa din kommentar om vår receptionsperonal. Med tanke på de incidenter som har inträffat under dina vistelser med oss verkar det tyvärr som att vi inte lyckas nå upp till dina förväntningar. Vi jobbar ständigt med förbättringar och skulle du önska diskutera din upplevelse på hotellet vidare så är du välkommen att kontakta mig direkt.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_265405374" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:265405374, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_265405374" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC eller noen av dets partnere.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_265405374">
+<a name="UR265405374"></a>
+<div id="UR265405374" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r265405374-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r265405374">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate relativeDate" title='13 april 2015'>Anmeldt 1 uke siden
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=265405374&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Odd Andre F,<br/><br/>Det var tråkigt att läsa din kommentar om vår receptionsperonal. Med tanke på de incidenter som har inträffat under dina vistelser med oss verkar det tyvärr som att vi inte lyckas nå upp till dina förväntningar. Vi jobbar ständigt med förbättringar och skulle du önska diskutera din upplevelse på hotellet vidare så är du välkommen att kontakta mig direkt.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq265405374_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq265405374 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3odKomkd0tEn1X3odKomkd0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_265405374" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '265405374'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_263184876">
+<a name="UR263184876"></a>
+<div id="UR263184876" class="extended provider91">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_F21D7D5652E77ABE06F6C483358E8338-SRC_263184876" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_F21D7D5652E77ABE06F6C483358E8338 ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/01/2e/70/a3/avatar074.jpg" class="avatar potentialFacebookAvatar avatarGUID:F21D7D5652E77ABE06F6C483358E8338" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_F21D7D5652E77ABE06F6C483358E8338" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Ansipansy</span>
+</div>
+</div>
+<div class="location">
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_F21D7D5652E77ABE06F6C483358E8338-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -25, -50);">
+<span class="badgeText">1 anmeldelse</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r263184876-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r263184876">&#x201c;<span class='noQuotes'>Flott beliggenhet, midt i bakken</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+<span class="ratingDate relativeDate" title='1 april 2015'>Anmeldt 3 uker siden
+</span>
+</div>
+<div class="entry">
+<p>
+Fint hotell som ligger supert til. Midt i Fageråsen med slalom- og langrennsløyper rett utenfor døren. Bra Spa og meget god Buffe. Reserver en leilighet, det var omtrent samme pris som hotellrom og du har tilgang til de samme fasilitetene. Kan anbefales.
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde mars 2015, reiste med familie</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Verdi</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Sted</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss30" src="http://e2.tacdn.com/img2/x.gif" alt="3 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Anmeldelse samlet inn i partnerskap med Park Inn by Radisson Hotels <span class="sprite-info_grn info_grn" onclick="ta.call('ta.overlays.Factory.showPartnerAttributionTip', event, this.parentNode, 'Denne forretningen bruker nettbaserte verktøy og ressurser gitt av TripAdvisor for å oppmuntre til og samle inn anmeldelser (inkludert denne) fra gjestene sine.');"></span></p>
+<div id="helpfulq263184876_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq263184876 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3mUvdvk30tEn1X3mUvdvk30zH1UKK3XKd0pSM1qnXUxMkxMo3oXzskkb7zsK3qn3fdvmmovzsvmmv0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra en individuell reisende og ikke fra TripAdvisor LLC eller noen av våre partnere.
+<div class="expandedProblem ">
+<span id="ReportIAP_263184876" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '263184876'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date relativeDate" title='3 april 2015'>3 uker siden</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=263382253&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_263184876">
+Hej Ansipansy,<br/><br/>Tack så mycket för dina vänliga ord och för att du tog dig tid att dela med dig av din upplevelse hos oss. Jag är glad att ni hade en bra vistelse med oss, och hoppas kunna välkomna dig och din familj tillbaka till Trysil inom snar framtid.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_263382253" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:263382253, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_263382253" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC eller noen av dets partnere.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_263382253">
+<a name="UR263382253"></a>
+<div id="UR263382253" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r263382253-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r263382253">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate relativeDate" title='3 april 2015'>Anmeldt 3 uker siden
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=263382253&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Ansipansy,<br/><br/>Tack så mycket för dina vänliga ord och för att du tog dig tid att dela med dig av din upplevelse hos oss. Jag är glad att ni hade en bra vistelse med oss, och hoppas kunna välkomna dig och din familj tillbaka till Trysil inom snar framtid.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq263382253_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq263382253 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3mmvXXom0tEn1X3mmvXXom0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_263382253" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '263382253'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_262844528">
+<a name="UR262844528"></a>
+<div id="UR262844528" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_CCB8404640BA70EF23E294350EAB56C6-SRC_262844528" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_CCB8404640BA70EF23E294350EAB56C6 ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-o/05/4f/af/98/phoff-p.jpg" class="avatar potentialFacebookAvatar avatarGUID:CCB8404640BA70EF23E294350EAB56C6" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_CCB8404640BA70EF23E294350EAB56C6" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Phoff P</span>
+</div>
+</div>
+<div class="location">
+Moss
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_CCB8404640BA70EF23E294350EAB56C6-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -10, -50);">
+<div class="reviewerTitle">Profesjonell anmelder</div>
+<img src="http://e2.tacdn.com/img2/x.gif" alt="35 anmeldelser" class="icon badge_srcontributor sprite-badge_srcontributor" width="25" height="24">
+<span class="badgeText">35 anmeldelser</span>
+<div class="contributionReviewBadge">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="" class="icon badge_hotels_1st sprite-badge_hotels_1st" width="25" height="24">
+<span class="badgeText">7 anmeldelser av hotell</span>
+</div> </div>
+<div class="passportStampsBadge badge" onclick="ta.call('ta.overlays.Factory.memberPassportStampOverlay', event, this,
+       { actionRecord: 'Cities_Badge_Clicked', memberId: 'CCB8404640BA70EF23E294350EAB56C6', screenName: 'Phoff P', geos: [666539, 190481, 1006204, 1026475, 187463, 580271, 189541, 186411, 189112, 635605, 190479, 189852], geo: '1006204' })">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="Anmeldelser i 12 byer" class="icon badge_passport sprite-badge_passport" width="25" height="24">
+<span class="badgeText">Anmeldelser i 12 byer</span> </div>
+<div id="UID_CCB8404640BA70EF23E294350EAB56C6-HV" class="helpfulVotesBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','helpful_count'); ta.util.cookie.setPIDCookie('15983'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -22, -50);">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="12 nyttige stemmer" class="icon badge_helpful sprite-badge_helpful" width="25" height="24">
+<span class="badgeText">12 nyttige stemmer</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r262844528-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r262844528">&#x201c;<span class='noQuotes'>Topp beliggenhet og fasiliteter</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+<span class="ratingDate relativeDate" title='31 mars 2015'>Anmeldt 3 uker siden
+</span>
+</div>
+<div class="entry">
+<p>
+Sjelden opplevd bedre opplevelse av ett hotell, i hvertfall ikke i Norge. Her er alt &quot;på stell&quot; , hotellet er riktignok ganske nytt - men de tar også vare på denne resorten ...det synes.<br/>Beliggenheten er ypperlig, rommene romslige og restauranten(e) leverer ....
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde mars 2015, reiste med familie</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="helpfulq262844528_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq262844528 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3XvddoXv0tEn1X3XvddoXv0zH1UKK3XKd0pSM1ff7vdKd3dK7bkKzsqnXmzsXAdmoKzsb7o3f30EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_262844528" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '262844528'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date relativeDate" title='3 april 2015'>3 uker siden</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=263376536&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_262844528">
+Hej Phoff P,<br/><br/>Tack så mycket för de vänliga orden och för att du tog dig tid att dela med dig om din upplevelse hos oss på Park Inn i Trysil. Jag hoppas vi får möjlighet att välkomna dig och din familj tillbaka till Trysil inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_263376536" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:263376536, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_263376536" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_263376536">
+<a name="UR263376536"></a>
+<div id="UR263376536" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r263376536-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r263376536">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate relativeDate" title='3 april 2015'>Anmeldt 3 uker siden
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=263376536&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Phoff P,<br/><br/>Tack så mycket för de vänliga orden och för att du tog dig tid att dela med dig om din upplevelse hos oss på Park Inn i Trysil. Jag hoppas vi får möjlighet att välkomna dig och din familj tillbaka till Trysil inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq263376536_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq263376536 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3mmk3om30tEn1X3mmk3om30zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_263376536" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '263376536'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_261730429">
+<a name="UR261730429"></a>
+<div id="UR261730429" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_D7B8D4D0255AE29CBD0DB256D9839954-SRC_261730429" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_D7B8D4D0255AE29CBD0DB256D9839954 ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-o/03/55/f0/df/kjell-g.jpg" class="avatar potentialFacebookAvatar avatarGUID:D7B8D4D0255AE29CBD0DB256D9839954" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_D7B8D4D0255AE29CBD0DB256D9839954" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Kjell G</span>
+</div>
+</div>
+<div class="location">
+Oslo, Norway
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_D7B8D4D0255AE29CBD0DB256D9839954-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -10, -50);">
+<div class="reviewerTitle">Anmelder</div>
+<img src="http://e2.tacdn.com/img2/x.gif" alt="6 anmeldelser" class="icon badge_srreviewer sprite-badge_srreviewer" width="25" height="24">
+<span class="badgeText">6 anmeldelser</span>
+</div>
+<div class="passportStampsBadge badge" onclick="ta.call('ta.overlays.Factory.memberPassportStampOverlay', event, this,
+       { actionRecord: 'Cities_Badge_Clicked', memberId: 'D7B8D4D0255AE29CBD0DB256D9839954', screenName: 'Kjell G', geos: [1006204, 1184718, 190479], geo: '1006204' })">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="Anmeldelser i 3 byer" class="icon badge_passport sprite-badge_passport" width="25" height="24">
+<span class="badgeText">Anmeldelser i 3 byer</span> </div>
+<div id="UID_D7B8D4D0255AE29CBD0DB256D9839954-HV" class="helpfulVotesBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','helpful_count'); ta.util.cookie.setPIDCookie('15983'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -22, -50);">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="1 nyttig stemme" class="icon badge_helpful sprite-badge_helpful" width="25" height="24">
+<span class="badgeText">1 nyttig stemme</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r261730429-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r261730429">&#x201c;<span class='noQuotes'>Et sted hvor voksne, barn, og par trives.</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+<span class="ratingDate relativeDate" title='25 mars 2015'>Anmeldt 4 uker siden
+</span>
+</div>
+<div class="entry">
+<p>
+Her får du alt på en plass.<br/>God restaurant, hyggelige Stabben afteski, bar, fullskala bakeri med cafe, Spaavdeling med utvendig og innvendig pool og flotte leiligheter hvor man kan lage mat selv hvis det passer. Puh....<br/>Ellers så ligger hotellet midt i skiområdet med ski inn/ut og en skilift som går på utsiden av hotellet og hvor de minste kan leke dagen lang. I tillegg en hyggelig bar, sportsbutikk og buss som korresponderer med Oslo og Gardermoen flyplass. Trysil er st sted som passer for store og små hele året.<br/>Hva mer trenger man?<br/>God tur
+</p>
+<div class="reviewItem inlineRoomTip">
+<b>Romtips:</b> Leilighet mot skiliften eller over utvendig poolområde er best
+<div class="taLnk hvrIE6" onclick="ta.call('ta.overlays.Factory.showRoomTipsOverlay', event, this, 'no');">Se flere romtips</div>
+</div>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde mars 2015, reiste som et par</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq261730429_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq261730429 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3UkmKdXA0tEn1X3UkmKdXA0zH1UKK3XKd0pSM1xMk7vxMdxMKXoobzsXAf7xMKxM7Xo3xMAvmAAod0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="sameGeoActivity">
+<a href="/members-citypage/KjellG137/g1006204" target="_blank" onclick="ta.setEvtCookie('Reviews','more_reviews_by_user','',0,this.href); ta.util.cookie.setPIDCookie(19160)">
+Se alle 4 anmeldelser av Kjell G for Trysil </a>
+</div>
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_261730429" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '261730429'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date relativeDate" title='27 mars 2015'>4 uker siden</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=262045263&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_261730429">
+Hej Kjell G,<br/><br/>Tack så mycket för de vänliga orden och för att du tog dig tid att dela med dig om din upplevelse hos oss på Park Inn Trysil Mountain Resort. Det gladde mig att läsa att du hade en bra vistelse med oss och att du inte saknade något på hotellet. Jag hoppas att vi får välkomna dig tillbaka inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_262045263" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:262045263, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_262045263" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_262045263">
+<a name="UR262045263"></a>
+<div id="UR262045263" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r262045263-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r262045263">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate relativeDate" title='27 mars 2015'>Anmeldt 4 uker siden
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=262045263&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Kjell G,<br/><br/>Tack så mycket för de vänliga orden och för att du tog dig tid att dela med dig om din upplevelse hos oss på Park Inn Trysil Mountain Resort. Det gladde mig att läsa att du hade en bra vistelse med oss och att du inte saknade något på hotellet. Jag hoppas att vi får välkomna dig tillbaka inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq262045263_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq262045263 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3XKdoX3m0tEn1X3XKdoX3m0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_262045263" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '262045263'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_259352562">
+<a name="UR259352562"></a>
+<div id="UR259352562" class="extended provider91">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_DE026C77312FBD88B55B678C261D12AC-SRC_259352562" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_DE026C77312FBD88B55B678C261D12AC ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/01/2e/70/67/avatar045.jpg" class="avatar potentialFacebookAvatar avatarGUID:DE026C77312FBD88B55B678C261D12AC" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_DE026C77312FBD88B55B678C261D12AC" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Mads/Anita N</span>
+</div>
+</div>
+<div class="location">
+Trysil, Norway
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_DE026C77312FBD88B55B678C261D12AC-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -25, -50);">
+<span class="badgeText">2 anmeldelser</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r259352562-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r259352562">&#x201c;<span class='noQuotes'>Regionleder</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+<span class="ratingDate">Anmeldt 13 mars 2015
+</span>
+</div>
+<div class="entry">
+<p>
+Dette hotellet har alt. Fantastisk beliggenhet og en rolig og behagelig atmosfære. Kan i aller høyeste grad benyttes som både konferansehotell og som feriegjest - begge deler fungere 100% Alle fasiliteter på hotellet er svært nær (om ikke) terningkast 6. Kombinasjonen forretning/møteaktivitet passer utmerket. Det er lett som forretningsmann å slappe av på fritiden. Midt i blinken spør du meg :-)
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde mars 2015, reiste på forretningsreise</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Verdi</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sted</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<p>Anmeldelse samlet inn i partnerskap med Park Inn by Radisson Hotels <span class="sprite-info_grn info_grn" onclick="ta.call('ta.overlays.Factory.showPartnerAttributionTip', event, this.parentNode, 'Denne forretningen bruker nettbaserte verktøy og ressurser gitt av TripAdvisor for å oppmuntre til og samle inn anmeldelser (inkludert denne) fra gjestene sine.');"></span></p>
+<div id="helpfulq259352562_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq259352562 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXoAmoXo3X0tEn1XoAmoXo3X0zH1UKK3XKd0pSM1xMzsKX3fkkmUXqn7xMvv7oo73kvfX3UxMUXbf0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra en individuell reisende og ikke fra TripAdvisor LLC eller noen av våre partnere.
+<div class="expandedProblem ">
+<span id="ReportIAP_259352562" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '259352562'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date relativeDate" title='20 mars 2015'>5 uker siden</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=260664991&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_259352562">
+Hej Mads/Anita N!<br/><br/>Tack så mycket för de vänliga orden och för att du delar med dig av dina upplevelser på Park Inn Trysil. Vi uppskattar verkligen dina återkommande besök hos oss, och hoppas att vi får möjligheten att välkomna dig som vår gäst igen inom snar framtid.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_260664991" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:260664991, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_260664991" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC eller noen av dets partnere.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_260664991">
+<a name="UR260664991"></a>
+<div id="UR260664991" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r260664991-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r260664991">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate relativeDate" title='20 mars 2015'>Anmeldt 5 uker siden
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=260664991&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Mads/Anita N!<br/><br/>Tack så mycket för de vänliga orden och för att du delar med dig av dina upplevelser på Park Inn Trysil. Vi uppskattar verkligen dina återkommande besök hos oss, och hoppas att vi får möjligheten att välkomna dig som vår gäst igen inom snar framtid.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq260664991_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq260664991 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcX3K33dAAU0tEn1X3K33dAAU0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_260664991" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '260664991'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_258836251">
+<a name="UR258836251"></a>
+<div id="UR258836251" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_E2B645CC167D617ADDB4B39FEB3ADAC8-SRC_258836251" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_E2B645CC167D617ADDB4B39FEB3ADAC8 ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/07/a6/6f/1a/kristoffer-f.jpg" class="avatar potentialFacebookAvatar avatarGUID:E2B645CC167D617ADDB4B39FEB3ADAC8" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_E2B645CC167D617ADDB4B39FEB3ADAC8" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Kristoffer F</span>
+</div>
+</div>
+<div class="location">
+Lillestrøm, Norge
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_E2B645CC167D617ADDB4B39FEB3ADAC8-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -10, -50);">
+<div class="reviewerTitle">Senioranmelder</div>
+<img src="http://e2.tacdn.com/img2/x.gif" alt="16 anmeldelser" class="icon badge_contributor sprite-badge_contributor" width="25" height="24">
+<span class="badgeText">16 anmeldelser</span>
+<div class="contributionReviewBadge">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="" class="icon badge_hotels_1st sprite-badge_hotels_1st" width="25" height="24">
+<span class="badgeText">5 anmeldelser av hotell</span>
+</div> </div>
+<div class="passportStampsBadge badge" onclick="ta.call('ta.overlays.Factory.memberPassportStampOverlay', event, this,
+       { actionRecord: 'Cities_Badge_Clicked', memberId: 'E2B645CC167D617ADDB4B39FEB3ADAC8', screenName: 'Kristoffer F', geos: [1006204, 60763, 608663, 147293, 187309], geo: '1006204' })">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="Anmeldelser i 5 byer" class="icon badge_passport sprite-badge_passport" width="25" height="24">
+<span class="badgeText">Anmeldelser i 5 byer</span> </div>
+<div id="UID_E2B645CC167D617ADDB4B39FEB3ADAC8-HV" class="helpfulVotesBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','helpful_count'); ta.util.cookie.setPIDCookie('15983'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -22, -50);">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="5 nyttige stemmer" class="icon badge_helpful sprite-badge_helpful" width="25" height="24">
+<span class="badgeText">5 nyttige stemmer</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r258836251-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r258836251">&#x201c;<span class='noQuotes'>Skiferie i easy modus!</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+<span class="ratingDate">Anmeldt 10 mars 2015
+</span>
+</div>
+<div class="entry">
+<p>
+Flott hotell som ligger perfekt til på fagerås siden!<br/>Geniale ski-inn-out løsninger. Du går rett fra rommet til ski-rom hvor du har ditt eget skap til å oppbevare skiene og skiskoene. Det er til og med tørkere, installert i hvert skap så skiskoene er knusk-tørre til dagen etter. Enkelt og greit, går man ut fra ski-rommet og til bakken, og har du ikke kjøpt skipass, kan du gjøre det på veien ut av bygget. Der kan du leie ski og bestille prepping av utstyr også. Rommene er fine og har det aller meste! God stemning på Stabben afterski som du sklir enkelt inn på etter å ha tatt heisen som ligger rett inntil hotellet. Veldig bra utvalg av drikke og annet snadder på stabben! Hyggelige trubadurer som spiller der også!<br/>Kommer definitivt til å komme tilbake til dette hotellet som har alt!
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde desember 2014, reiste som et par</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq258836251_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq258836251 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXovvm3XoU0tEn1Xovvm3XoU0zH1UKK3XKd0pSM1zsX73doffU3kxM3UkbxMxM7d7mAqnzs7mbxMbfv0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_258836251" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '258836251'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date" title='20 mars 2015'>13 mars 2015</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=259245027&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_258836251">
+Hej Kristoffer F!<br/><br/>Tack så mycket för de vänliga orden och för att du tog dig tid att dela med dig om din upplevelse hos oss på Park Inn Trysil Mountain Resort. Det gladde mig att läsa att du hade en bra vistelse med oss och att du kommer tillbaka till hotellet. Jag hoppas att vi får välkomna dig tillbaka inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_259245027" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:259245027, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_259245027" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_259245027">
+<a name="UR259245027"></a>
+<div id="UR259245027" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r259245027-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r259245027">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate">Anmeldt 13 mars 2015
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=259245027&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Kristoffer F!<br/><br/>Tack så mycket för de vänliga orden och för att du tog dig tid att dela med dig om din upplevelse hos oss på Park Inn Trysil Mountain Resort. Det gladde mig att läsa att du hade en bra vistelse med oss och att du kommer tillbaka till hotellet. Jag hoppas att vi får välkomna dig tillbaka inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq259245027_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq259245027 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXoAXdoKXk0tEn1XoAXdoKXk0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_259245027" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '259245027'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_257397794">
+<a name="UR257397794"></a>
+<div id="UR257397794" class="extended provider91">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_B336730413D39775C8F40B3301FC500F-SRC_257397794" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_B336730413D39775C8F40B3301FC500F ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/01/2a/fd/a3/avatar.jpg" class="avatar potentialFacebookAvatar avatarGUID:B336730413D39775C8F40B3301FC500F" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_B336730413D39775C8F40B3301FC500F" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Nina Jeanette N</span>
+</div>
+</div>
+<div class="location">
+Fredrikstad, Norge
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_B336730413D39775C8F40B3301FC500F-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -10, -50);">
+<div class="reviewerTitle">Senioranmelder</div>
+<img src="http://e2.tacdn.com/img2/x.gif" alt="14 anmeldelser" class="icon badge_contributor sprite-badge_contributor" width="25" height="24">
+<span class="badgeText">14 anmeldelser</span>
+</div>
+<div id="UID_B336730413D39775C8F40B3301FC500F-HV" class="helpfulVotesBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','helpful_count'); ta.util.cookie.setPIDCookie('15983'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -22, -50);">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="2 nyttige stemmer" class="icon badge_helpful sprite-badge_helpful" width="25" height="24">
+<span class="badgeText">2 nyttige stemmer</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r257397794-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r257397794">&#x201c;<span class='noQuotes'>Utrolig flott</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+<span class="ratingDate">Anmeldt 2 mars 2015
+</span>
+</div>
+<div class="entry">
+<p>
+Utrolig flotte rom og service, eneste som jeg ikke var fornøyd med er at treningsrommet og svømmehallen ikke var inkludert i prisen. Det at 1 voksen må betale 125,- for hver treningsøkt i løpet av helgen kunne en vært foruten. Buffe til frokost og middag var utrolig digg :)
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde mars 2015, reiste med familie</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Verdi</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sted</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Anmeldelse samlet inn i partnerskap med Park Inn by Radisson Hotels <span class="sprite-info_grn info_grn" onclick="ta.call('ta.overlays.Factory.showPartnerAttributionTip', event, this.parentNode, 'Denne forretningen bruker nettbaserte verktøy og ressurser gitt av TripAdvisor for å oppmuntre til og samle inn anmeldelser (inkludert denne) fra gjestene sine.');"></span></p>
+<div id="helpfulq257397794_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq257397794 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXokmAkkAd0tEn1XokmAkkAd0zH1UKK3XKd0pSM17mm3kmKdUmxMmAkkofvqndK7mmKUqnfoKKqn0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra en individuell reisende og ikke fra TripAdvisor LLC eller noen av våre partnere.
+<div class="expandedProblem ">
+<span id="ReportIAP_257397794" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '257397794'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date" title='20 mars 2015'>6 mars 2015</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=257978423&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_257397794">
+Hej Nina Jeanette N,<br/><br/>Tack för dina kommentarer och för att du tog dig tid att dela med dig av din upplevelse hos oss. Jag hoppas att vi får möjligheten att välkomna dig och din familj tillbaka till Trysil inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_257978423" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:257978423, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_257978423" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC eller noen av dets partnere.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_257978423">
+<a name="UR257978423"></a>
+<div id="UR257978423" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r257978423-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r257978423">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate">Anmeldt 6 mars 2015
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=257978423&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Nina Jeanette N,<br/><br/>Tack för dina kommentarer och för att du tog dig tid att dela med dig av din upplevelse hos oss. Jag hoppas att vi får möjligheten att välkomna dig och din familj tillbaka till Trysil inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq257978423_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq257978423 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXokAkvdXm0tEn1XokAkvdXm0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_257978423" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '257978423'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_252347150">
+<a name="UR252347150"></a>
+<div id="UR252347150" class="extended provider91">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_579AD286103E0A9C346DEC89E4C71E20-SRC_252347150" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_579AD286103E0A9C346DEC89E4C71E20 ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/01/2e/70/9f/avatar070.jpg" class="avatar potentialFacebookAvatar avatarGUID:579AD286103E0A9C346DEC89E4C71E20" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_579AD286103E0A9C346DEC89E4C71E20" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Gunnar/Anne Lis... E</span>
+</div>
+</div>
+<div class="location">
+Trysil, Norway
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_579AD286103E0A9C346DEC89E4C71E20-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -25, -50);">
+<span class="badgeText">1 anmeldelse</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r252347150-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r252347150">&#x201c;<span class='noQuotes'>Flott beliggenhet</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+<span class="ratingDate">Anmeldt 2 februar 2015
+</span>
+</div>
+<div class="entry">
+<p>
+Nærhet til friluft, skibakker og langrennsløyper. Hyggelig personal. Fine rom. Kan trygt anbefales sommer og vinter. Meget god frokost. Vi hadde badekar med dusjvegg, her må du dusje forsiktig ellers så blir det vann overalt.
+</p>
+</div>
+<div class="rating-list">
+<ul class="recommend">
+<li>
+<span class="recommend-titleInline">Bodde februar 2015, reiste med venner</span>
+<ul class="recommend-column first">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Verdi</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sted</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Sovekvalitet</li>
+</ul>
+<ul class="recommend-column">
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Rom</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+Renslighet</li>
+<li class="recommend-answer">
+<span class="rate sprite-rating_ss rating_ss">
+<img class="sprite-rating_ss_fill rating_ss_fill ss50" src="http://e2.tacdn.com/img2/x.gif" alt="5 av 5 stjerner">
+</span>
+Service</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Anmeldelse samlet inn i partnerskap med Park Inn by Radisson Hotels <span class="sprite-info_grn info_grn" onclick="ta.call('ta.overlays.Factory.showPartnerAttributionTip', event, this.parentNode, 'Denne forretningen bruker nettbaserte verktøy og ressurser gitt av TripAdvisor for å oppmuntre til og samle inn anmeldelser (inkludert denne) fra gjestene sine.');"></span></p>
+<div id="helpfulq252347150_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq252347150 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXoXmdkUoK0tEn1XoXmdkUoK0zH1UKK3XKd0pSM1okAbxMXv3UKmzsKbAfmd3xMzsfvAzsdfkUzsXK0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra en individuell reisende og ikke fra TripAdvisor LLC eller noen av våre partnere.
+<div class="expandedProblem ">
+<span id="ReportIAP_252347150" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '252347150'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date" title='20 mars 2015'>3 februar 2015</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=252378204&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_252347150">
+Hej Gunnar/Anne Lis,<br/><br/>Tack för dina vänliga ord och för att du tog dig tid att dela med dig av din upplevelse. Jag önskar dig välkommen tillbaka till Park Inn och Trysil inom snar framtid. Vi har dock inte öppet under sommarperioden ännu, men hoppas på att vi får möjligheten att visa upp Fageråsen och hotellet även på sommaren i famtiden.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_252378204" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:252378204, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_252378204" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC eller noen av dets partnere.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_252378204">
+<a name="UR252378204"></a>
+<div id="UR252378204" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r252378204-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r252378204">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate">Anmeldt 3 februar 2015
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=252378204&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Gunnar/Anne Lis,<br/><br/>Tack för dina vänliga ord och för att du tog dig tid att dela med dig av din upplevelse. Jag önskar dig välkommen tillbaka till Park Inn och Trysil inom snar framtid. Vi har dock inte öppet under sommarperioden ännu, men hoppas på att vi får möjligheten att visa upp Fageråsen och hotellet även på sommaren i famtiden.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq252378204_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq252378204 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXoXmkvXKd0tEn1XoXmkvXKd0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_252378204" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '252378204'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_250992709">
+<a name="UR250992709"></a>
+<div id="UR250992709" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_6EE3E5107F443CA3942F77BBDEAE6533-SRC_250992709" class="memberOverlayLink" onmouseover="ta.trackEventOnPage('Reviews','show_reviewer_info_window','user_name_photo'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', 0, (new Element(this)).getElement('.avatar')&&(new Element(this)).getElement('.avatar').getStyle('border-radius')=='100%'?-10:0);">
+<div class="avatar profile_6EE3E5107F443CA3942F77BBDEAE6533 ">
+<a onclick=>
+<img src="http://media-cdn.tripadvisor.com/media/photo-l/06/61/94/73/paal-k.jpg" class="avatar potentialFacebookAvatar avatarGUID:6EE3E5107F443CA3942F77BBDEAE6533" width="74" height="74"/>
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname hvrIE6 mbrName_6EE3E5107F443CA3942F77BBDEAE6533" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Paal K</span>
+</div>
+</div>
+<div class="location">
+Geilo
+</div>
+</div>
+<div class="memberBadging">
+<div id="UID_6EE3E5107F443CA3942F77BBDEAE6533-CONT" class="totalReviewBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','review_count'); ta.util.cookie.setPIDCookie('15984'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -10, -50);">
+<div class="reviewerTitle">Ekspert</div>
+<img src="http://e2.tacdn.com/img2/x.gif" alt="69 anmeldelser" class="icon badge_topcontributor sprite-badge_topcontributor" width="25" height="24">
+<span class="badgeText">69 anmeldelser</span>
+<div class="contributionReviewBadge">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="" class="icon badge_hotels_3rd sprite-badge_hotels_3rd" width="25" height="24">
+<span class="badgeText">32 anmeldelser av hotell</span>
+</div> </div>
+<div class="passportStampsBadge badge" onclick="ta.call('ta.overlays.Factory.memberPassportStampOverlay', event, this,
+       { actionRecord: 'Cities_Badge_Clicked', memberId: '6EE3E5107F443CA3942F77BBDEAE6533', screenName: 'Paal K', geos: [60993, 190475, 2416360, 190479, 189452, 226901, 1959559, 2539261, 191261, 186338, 190498, 190499, 503715, 187046, 226925, 227955, 1439525, 1006204, 187830, 226935, 226934, 190458, 187323, 226938, 226936, 190457], geo: '1006204' })">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="Anmeldelser i 26 byer" class="icon badge_passport sprite-badge_passport" width="25" height="24">
+<span class="badgeText">Anmeldelser i 26 byer</span> </div>
+<div id="UID_6EE3E5107F443CA3942F77BBDEAE6533-HV" class="helpfulVotesBadge badge no_cpu" onclick="ta.trackEventOnPage('Reviews','show_reviewer_info_window','helpful_count'); ta.util.cookie.setPIDCookie('15983'); ta.call('ta.overlays.Factory.memberOverlayWOffset', event, this, 's3 dg rgba_gry update2012', -22, -50);">
+<img src="http://e2.tacdn.com/img2/x.gif" alt="52 nyttige stemmer" class="icon badge_helpful sprite-badge_helpful" width="25" height="24">
+<span class="badgeText">52 nyttige stemmer</span>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r250992709-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r250992709">&#x201c;<span class='noQuotes'>Atmosfære må det være</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s">
+<img class="sprite-rating_s_fill rating_s_fill s40" src="http://e2.tacdn.com/img2/x.gif" alt="4 av 5 stjerner">
+</span>
+<span class="ratingDate">Anmeldt 26 januar 2015
+</span>
+</div>
+<div class="entry">
+<p>
+Altså. Det et knapt en nordmann som jobber her, og det er jo heller ikke så mange nordmenn som bor her på dette utrolig hyggelige stedet. (I januar var det innlegg fall slik) Nok om svensker. Dette stedet burde flere av dere teste, bo på og nyte. Smart skrudd sammen og utrolig stort, samtidig som de har beholdt den lune atmosfæren. Godt gjort! Og bakeriet like i nærheten kan sakene sine, og gir deg muligheter til virkelig oppgradert frokost på &quot;rommet&quot;.
+</p>
+</div>
+<div class="rating-list">
+<div class="recommend">
+<span class="recommend-titleInline noRatings">Bodde januar 2015, reiste på forretningsreise</span>
+</div>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq250992709_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq250992709 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXoKAAXkKA0tEn1XoKAAXkKA0zH1UKK3XKd0pSM13zszsmzsoUKkqnddmfbmAdXqnkk77xMzsbzs3omm0EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_250992709" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '250992709'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+<div class="mgrRspnInline">
+<div class="header">
+Jonas G, Manager på Park Inn Trysil Mountain Resort, svarte på denne anmeldelsen,
+<span class="res_date" title='20 mars 2015'>27 januar 2015</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=251232753&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="displayText" id="response_250992709">
+Hej Paal K,<br/><br/>Tack så mycket för din feedback. Jag är glad för att du hade en bra vistelse med oss och för att du tog dig tid att dela med dig om din upplevelse. Jag hoppas vi får möjlighet att välkomna dig tillbaka till Trysil inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</div>
+<span class="expandedProblem reportProblem">
+<span id="ReportIAP_OR_251232753" class="problem taLnk" onclick="ta.call('ta.overlays.Factory.iapOwnerFlyout', event, this, {reviewid:251232753, isGeo:false, locationid:2440155})">
+Rapporter svar som upassende
+</span>
+<span id="ReportIAP_OR_ThankYou_251232753" class="problem thank_you" style="display:none;">Takk. Vi setter pris på dine bidrag.</span>
+</span>
+<div class="note">
+Dette svaret er den subjektive meningen fra en representant for foretaket og ikke fra TripAdvisor LLC.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="expanded_review_251232753">
+<a name="UR251232753"></a>
+<div id="UR251232753" class="extended provider0">
+<div class="col1of2">
+<div class="member_info">
+<div class="avatar ">
+<img src="http://e2.tacdn.com/img2/generic/site/no_user_photo-v1.gif" class="avatar" width="74" height="74"/>
+</div>
+<div class="username">
+Et TripAdvisor-medlem </div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="quote"><a href="/ShowUserReviews-g1006204-d2440155-r251232753-Park_Inn_Trysil_Mountain_Resort-Trysil_Municipality_Hedmark_Eastern_Norway.html#CHECK_RATES_CONT" onclick="      ta.call('ta.overlays.Factory.showReviewSnippetSoftGateCta', event, this, 'AAABTOpf1iCB9tK5wnGxOAUcEHMySc6kpJLM/w==', function() { ta.setEvtCookie('Reviews','title','',0,this.href); setPID(); }.bind(this), '2440155', '39417');
+        return false;
+  " id="r251232753">&#x201c;<span class='noQuotes'>Owner response</span>&#x201d;</a></div>
+<div class="rating reviewItemInline">
+<span class="ratingDate">Anmeldt 27 januar 2015
+</span>
+</div>
+<div class="googleTranslation reviewItem">
+<span class="link" onclick="ta.call('ta.overlays.Factory.reviewTranslate', event, this, '/MachineTranslation?g=1006204&amp;d=2440155&amp;r=251232753&amp;page=review&amp;sl=sv&amp;tl=no'); ta.trackEventOnPage('Reviews', 'google_translate')">
+<img alt="Google-oversetting" src="http://e2.tacdn.com/img2/langs/no/buttons/googleTranslation.gif"/>
+</span>
+</div>
+<div class="entry">
+<p>
+Hej Paal K,<br/><br/>Tack så mycket för din feedback. Jag är glad för att du hade en bra vistelse med oss och för att du tog dig tid att dela med dig om din upplevelse. Jag hoppas vi får möjlighet att välkomna dig tillbaka till Trysil inom kort.<br/><br/>Med vänliga hälsningar,<br/>Jonas
+</p>
+</div>
+<div class="expanded lessLink">
+<span class="taLnk collapse ulBlueLinks linkItem ">
+mindre&nbsp;
+</span>
+<img class="textArrow_more sprite-textArrowUp_more" src="http://e2.tacdn.com/img2/x.gif" alt=""/>
+</div>
+<div id="helpfulq251232753_expanded" class="helpful">
+<span class="isHelpful">Var denne anmeldelsen nyttig?</span>
+<span class="tgt_helpfulq251232753 rndBtn rndBtnGreen rndBtnSmall" onclick="ta.util.cookie.setPIDCookie(5034); ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'PCiYzS8LeJIVqd4EVIpECri1GII26mbqgqgCixizSxiniaqgzsxE2JCMVMqdtqHyUKK3XKdqHMXddKUooqHJQQoqnQQniCIVxEIxiKqHJQQoqnQQVxE2JCMxiUqHJQQoqnQQEVsSVutxiX3dmvdXAX6XoXfX3moXomUA6XoXfX3mUvdvk36XoXfX3XvddoXv6XoXfX3UkmKdXA6XoXfXoAmoXo3X6XoXfXovvm3XoU6XoXfXokmAkkAd6XoXfXoXmdkUoK6XoXfXoKAAXkKAqHJQQoqnQQtVEscVIxiqWQQoqnQQQQoqnQQoqnQQoqnQQQQoqnQQeVsSVuqHJQQoqnQQIJEyVIxiX3dmvdXAXqHwJE9QQoqnQQlCCQQoqnQQrEgtScQQoqnQQDipCIJSCQQoqnQQeVtiEIqHrEgtScQQoqnQQDpCSnS2JcSIgQQoqnQQ5VMaJE9QQoqnQQzsJtIVECQQoqnQQZiEuJgxiGIac6XoXmqoTpcXoUXmXkom0tEn1XoUXmXkom0zH1UKK3XKd0pSM10EJIVqiJcpV1U');; ta.trackEventOnPage('helpful_vote_button', 'Ja')">Ja</span>
+</div>
+<div class="userLinks">
+<div class="askQuestion">
+</div>
+</div>
+<div class="note">
+Denne anmeldelsen er den subjektive meningen fra et TripAdvisor-medlem og ikke fra TripAdvisor LLC.
+<div class="expandedProblem ">
+<span id="ReportIAP_251232753" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.overlays.Factory.iapFlyout', event, this, {voteContentType:'USERREVIEW', contentId: '251232753'})" onmouseover="ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.onmouseover=null">
+<span class="hidden ulBlueLinks">Problem med denne anmeldelsen?</span>
+<img src="http://e2.tacdn.com/img2/icons/gray_flag.png" width="13" height="14" alt="">
+</span>
+</div> </div>
+</div>
+</div>
+</div>
+</div>

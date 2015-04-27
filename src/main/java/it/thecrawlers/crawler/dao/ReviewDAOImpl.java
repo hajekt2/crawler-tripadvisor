@@ -1,6 +1,6 @@
 package it.thecrawlers.crawler.dao;
 
-import it.thecrawlers.model.Item;
+import it.thecrawlers.model.Review;
 
 import java.util.List;
 
@@ -12,26 +12,26 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class ItemDAOImpl implements ItemDAO {
+public class ReviewDAOImpl implements ReviewDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	public <S extends Item> S save(S entity) {
+	public <S extends Review> S save(S entity) {
 		sessionFactory.getCurrentSession().persist(entity);
 		return entity;
 	}
 
 	@Override
-	public <S extends Item> Iterable<S> save(Iterable<S> entities) {
+	public <S extends Review> Iterable<S> save(Iterable<S> entities) {
 		sessionFactory.getCurrentSession().persist(entities);
 		return entities;
 	}
 
 	@Override
-	public Item findOne(String id) {
-		return (Item) sessionFactory.getCurrentSession().get(Item.class, id);
+	public Review findOne(String id) {
+		return (Review) sessionFactory.getCurrentSession().get(Review.class, id);
 	}
 
 	@Override
@@ -40,47 +40,47 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public Iterable<Item> findAll() {
+	public Iterable<Review> findAll() {
 		@SuppressWarnings("unchecked")
-		List<Item> ItemList = sessionFactory.getCurrentSession().createQuery("from Item").list();
-		return ItemList;
+		List<Review> ReviewList = sessionFactory.getCurrentSession().createQuery("from Review").list();
+		return ReviewList;
 	}
 
 	@Override
-	public Iterable<Item> findAll(Iterable<String> ids) {
+	public Iterable<Review> findAll(Iterable<String> ids) {
 		String idList = StringUtils.join(ids, ",");
 		@SuppressWarnings("unchecked")
-		List<Item> ItemList = sessionFactory.getCurrentSession().createQuery("from Item where id in (:idList)")
+		List<Review> ReviewList = sessionFactory.getCurrentSession().createQuery("from Review where id in (:idList)")
 				.setString("idList", idList).list();
-		return ItemList;
+		return ReviewList;
 	}
 
 	@Override
 	public long count() {
 		@SuppressWarnings("unchecked")
-		List<Item> ItemList = sessionFactory.getCurrentSession().createQuery("from Item").list();
-		return ItemList.size();
+		List<Review> ReviewList = sessionFactory.getCurrentSession().createQuery("from Review").list();
+		return ReviewList.size();
 	}
 
 	@Override
 	public void delete(String id) {
-		sessionFactory.getCurrentSession().createQuery("delete from Item where id = :id").setString("id", id)
+		sessionFactory.getCurrentSession().createQuery("delete from Review where id = :id").setString("id", id)
 				.executeUpdate();
 	}
 
 	@Override
-	public void delete(Item entity) {
+	public void delete(Review entity) {
 		sessionFactory.getCurrentSession().delete(entity);
 	}
 
 	@Override
-	public void delete(Iterable<? extends Item> entities) {
+	public void delete(Iterable<? extends Review> entities) {
 		sessionFactory.getCurrentSession().delete(entities);
 	}
 
 	@Override
 	public void deleteAll() {
-		sessionFactory.getCurrentSession().createQuery("delete from Item").executeUpdate();
+		sessionFactory.getCurrentSession().createQuery("delete from Review").executeUpdate();
 	}
 
 }

@@ -6,9 +6,10 @@ import it.thecrawlers.model.Review;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.Source;
@@ -21,111 +22,57 @@ import org.springframework.stereotype.Component;
 @Component
 public class ItemReviewsPageParser {
 	private static final Logger logger = LoggerFactory.getLogger(ItemReviewsPageParser.class);
-	
-	public boolean isItemReviewsPage(String path) {
-		return (path.startsWith("/Hotel_Review"))
+
+	public boolean isItemReviewsPage(String path) {	
+		boolean result = (path.startsWith("/Hotel_Review"))
 				|| (path.startsWith("/Restaurant_Review"))
 				|| (path.startsWith("/Attraction_Review"));
+		logger.trace("Path is a review page = {} for {}", result, path);
+		return result;
 	}
 
-	public Item parseItem(String html, String path) {
-		Source source = new Source(html); // creo
+	public Item parseItem(String html, String path, String url) {
+		Source source = new Source(html);
+		Item item = new Item();
 
 		String[] pathFields = path.split("-");
 		/*
-		 * NB:
 		 * " /Restaurant_Review-g1207908-d2060003-Reviews-or20-Mama_Rosa_s-Leighton_Buzzard_Bedfordshire_England.html"
 		 * [0] /Restaurant_Review [1] g1207908 [2] d2060003 [3] Reviews [4?]
-		 * or20 [4-5] Mama_Rosa_s (penultimo) [5-6]
-		 * Leighton_Buzzard_Bedfordshire_England.html (ultimo)
+		 * or20 [4-5] Mama_Rosa_s [5-6]
 		 */
-		String itemID = pathFields[2];
-		String description = pathFields[pathFields.length - 2]
-				.replace("_", " ");
-		// String description = source.getElementById("HEADING").getContent().toString();
-
-		// String locationID = pathFields[1];
-		// String locationName = pathFields[pathFields.length - 1].substring(0, IndexOf(".") - 1);
-		String raw_totalReviewsCount = "0";
-		int totalReviewsCount = 0;
-		try {
-			raw_totalReviewsCount = source
-					.getFirstElementByClass("reviews_header").getContent()
-					.toString().replace(".", "");
-			totalReviewsCount = Integer.parseInt(raw_totalReviewsCount
-					.substring(0, raw_totalReviewsCount.indexOf(" ")));
-
-		} catch (Exception ex) {}
-
-		List<Element> reviewElems = source.getAllElementsByClass("reviewSelector");
-		for (Element element : reviewElems) {
-			String id = element.getAttributeValue("id");
-			logger.debug(id);
+		item.setId(pathFields[2]);
+		item.setName(source.getElementById("HEADING").getContent().getRenderer().toString());
+		if (StringUtils.isEmpty(item.getName())) {
+			item.setName(pathFields[pathFields.length - 2].replace("_", " "));
 		}
-		
-		Item item = null;// = new Item(itemID, description);
-//		item.setTotalReviewsCount(totalReviewsCount);
-
+		item.setUrl(url);	
+		item.setLocationId(pathFields[1]);
+		// String locationName = pathFields[pathFields.length - 1].substring(0, IndexOf(".") - 1);
+		item.setCrawlDate(new Date());
 		return item;
 	}
 
-	public String parseItemIdFromPath(String path) {
-		String[] pathFields = path.split("-");
-		return pathFields[2];
-	}
+	public Set<Review> parseReviews(String html, String path) {
+		Source source = new Source(html);
+		Set<Review> parsedReviews = new HashSet<Review>();
 
-	public List<Review> parseReviews(String html, String path) {
-		Source source = new Source(html); // creo la source di jericho
-		List<Review> parsedReviews = new LinkedList<Review>();
-
-		List<Element> reviews = source.getAllElementsByClass("reviewSelector");
-		for (Element rev : reviews) {
-			try {
-				String reviewID = "r"
-						+ rev.getAttributeValue("id").substring(7); // "review_1352800"
-																	// -->
-																	// "r1352800"
-
-				if (rev.getChildElements().isEmpty()) continue;
-				
-				String raw_date = null;
-				Element ratingDateElem = rev.getFirstElementByClass("ratingDate");
-				if (ratingDateElem != null) {
-					raw_date = ratingDateElem.getAttributeValue("title");
-					if (StringUtils.isEmpty(raw_date)) {
-		                raw_date = ratingDateElem.getContent().toString(); // ">Reviewed January 30, 2015",
-		                raw_date = raw_date.substring(9);						
-					}
-				}
-				Date date = null;
-				if (!StringUtils.isEmpty(raw_date)) {
-					date = parseRawDate(StringUtils.strip(raw_date));
+		List<Element> reviewsElementList = source.getAllElementsByClass("reviewSelector");
+		for (Element reviewElement : reviewsElementList) {
+			Review review = new Review();
+			try {								
+				review.setId(reviewElement.getAttributeValue("id").substring(7)); // "review_1352800"
+				if (reviewElement.getChildElements().isEmpty()) { 
+					parsedReviews.add(review);					
+					continue;
 				}
 
-				// Potremmo voler estrarre anche il titolo della review (non funziona sempre)
-				//estraggo "reviewTitle"
-				/*
-				 * String reviewTitle =
-				 * rev.getFirstElementByClass("quote").getContent
-				 * ().getFirstElement().getContent().toString(); reviewTitle =
-				 * reviewTitle.substring(8, reviewTitle.length() - 8 ) ; //
-				 * altrimenti ho &#x201c;_______&#x201d;
-				 */
-				String reviewTitle = "";  //altrimenti passo una stringa vuota come titolo della review
-
-				String raw_value = rev
-						.getFirstElementByClass("sprite-rating_s_fill")
-						.getAttributeValue("alt"); // 4 of 5 stars
-				
-				int int_value = Integer.parseInt(raw_value.substring(0,
-						raw_value.indexOf(" ")));
-
-				if ((int_value < 1)||(int_value>5))
-					throw new Exception("Il valore '" + int_value + "' non corrisponde ad un voto valido! (1-5)");
-				
-						
-//				Review newReview = new Review(reviewID, date, reviewTitle, rv);
-				parsedReviews.add(null);
+				review.setCrawlDate(new Date());			
+				review.setAuthor(getReviewAuthor(reviewElement));
+				review.setRating(getReviewRating(reviewElement, review));				
+				review.setTitle(getReviewTitle(reviewElement));				
+				review.setDate(getReviewCreationDate(reviewElement));
+				parsedReviews.add(review);
 			} catch (Exception e) {
 				logger.error("Parsing error on page ["+path+"]", e);
 			}
@@ -134,8 +81,71 @@ public class ItemReviewsPageParser {
 		return parsedReviews;
 	}
 
-	private Date parseRawDate(String raw_date) throws ParseException {
-		//sample April 10, 2015
-		return new SimpleDateFormat("MMM dd, yyyy",  Locale.ENGLISH).parse(raw_date);
+	public void parseExpandedUserReview(String expandedUserReviewHtml, Set<Review> reviews) {
+		Source source = new Source(expandedUserReviewHtml);
+
+		for (Review review : reviews) {
+			try {
+				Element reviewElement = source.getElementById("expanded_review_" + review.getId());
+				review.setCrawlDate(new Date());
+				review.setAuthor(getReviewAuthor(reviewElement));
+				review.setRating(getReviewRating(reviewElement, review));
+				review.setTitle(getReviewTitle(reviewElement));
+				review.setText(getReviewText(reviewElement));
+				review.setDate(getReviewCreationDate(reviewElement));
+			} catch (Exception e) {
+				logger.error("Parsing error on review ["+review.getId()+"]", e);
+			}
+		}		
 	}
+
+	private String getReviewText(Element reviewElement) {
+		return reviewElement.getFirstElementByClass("entry").getContent()
+				.getFirstElement().getContent().getRenderer().toString();
+	}
+
+	private String getReviewTitle(Element reviewElement) {
+		return reviewElement.getFirstElementByClass("quote").getContent()
+				.getFirstElement().getContent().getRenderer().toString();
+	}
+
+	private String getReviewAuthor(Element reviewElement) {
+		return reviewElement.getFirstElementByClass("username").getContent().getRenderer().toString().trim();
+	}
+
+	private Date getReviewCreationDate(Element reviewElement) throws ParseException {
+		String raw_date = null;
+		Element ratingDateElem = reviewElement.getFirstElementByClass("ratingDate");
+		if (ratingDateElem != null) {
+			raw_date = ratingDateElem.getAttributeValue("title");
+			if (StringUtils.isEmpty(raw_date)) {
+                raw_date = ratingDateElem.getContent().toString(); // Anmeldt 10 mars 2015
+                raw_date = raw_date.substring(8);						
+			}					
+		}
+		Date date = null;
+		if (!StringUtils.isEmpty(raw_date)) {
+			date = parseRawDate(StringUtils.strip(raw_date));
+		}
+		return date;
+	}
+	
+	private int getReviewRating(Element reviewElement, Review review) {
+		String rawRatingValue = reviewElement
+				.getFirstElementByClass("sprite-rating_s_fill")
+				.getAttributeValue("alt"); // 3 av 5 stjerner			
+		int ratingValue = Integer.parseInt(rawRatingValue.substring(0,
+				rawRatingValue.indexOf(" ")));
+		if ((ratingValue < 1)||(ratingValue > 5)) {
+			logger.error("Rating value {} is not in allowed limit (1-5) for review {}", ratingValue, review.getId());
+			ratingValue = -1;
+		}
+		return ratingValue;
+	}
+
+	private Date parseRawDate(String raw_date) throws ParseException {
+		//sample: 20 april 2015
+		return new SimpleDateFormat("dd MMM yyyy",  new Locale("no")).parse(raw_date);
+	}
+
 }

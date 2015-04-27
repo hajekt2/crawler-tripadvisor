@@ -5,9 +5,6 @@
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
 		<file>crawler-tripadvisor.log</file>
 
-		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>DEBUG</level>
-		</filter>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>%date %level [%thread] [%X{user}] %logger{10} [%file :	%line] %msg%n</pattern>
 		</encoder>
@@ -21,6 +18,7 @@
 
 	<logger name="net.htmlparser.jericho" level="OFF" />
 	<logger name="it.thecrawlers" level="TRACE" />
+	<logger name="org.apache.http.client.protocol.ResponseProcessCookies" level="ERROR" />
 
 	<root>
 		<level value="INFO" />

@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,11 +25,8 @@ public class Item {
 	@Column(name="name")
 	private String name;
 
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="ItemReviews",
-		joinColumns=@JoinColumn(name="itemId"),
-		inverseJoinColumns=@JoinColumn(name="reviewId")
-	)
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "itemId")	
 	private Set<Review> reviews;
 	
 	@Column(name="crawlDate")
@@ -47,16 +44,6 @@ public class Item {
 		crawlDate = new Date(System.currentTimeMillis());
 	}
 	
-	public Item(String id, String name, Set<Review> reviews, Date crawlDate, String locationId, String url) {
-		this();
-		this.id = id;
-		this.name = name;
-		this.reviews = reviews;
-		this.crawlDate = crawlDate;
-		this.locationId = locationId;
-		this.url = url;
-	}
-
 	public String getId() {
 		return id;
 	}

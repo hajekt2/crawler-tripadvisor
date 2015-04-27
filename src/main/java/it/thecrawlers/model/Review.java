@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,29 +24,20 @@ public class Review {
 	private String author;
 
 	@Column(name = "rating")
-	private String rating;
+	private int rating;
 
 	@Column(name = "title")
 	private String title;
 
-	@Column(name = "text")
+	@Column(name = "text", columnDefinition = "TEXT")
 	private String text;
 
+	@Column(name="crawlDate")
+	private Date crawlDate;
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "itemId")
 	private Item item;
 	
-	public Review(String id, Date date, String author, String rating, String title, String text, Item item) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.author = author;
-		this.rating = rating;
-		this.title = title;
-		this.text = text;
-		this.item = item;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -72,11 +62,11 @@ public class Review {
 		this.author = author;
 	}
 
-	public String getRating() {
+	public int getRating() {
 		return rating;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
@@ -104,4 +94,35 @@ public class Review {
 		this.item = item;
 	}
 	
+	public Date getCrawlDate() {
+		return crawlDate;
+	}
+
+	public void setCrawlDate(Date crawlDate) {
+		this.crawlDate = crawlDate;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Review [id=");
+		builder.append(id);
+		builder.append(", date=");
+		builder.append(date);
+		builder.append(", author=");
+		builder.append(author);
+		builder.append(", rating=");
+		builder.append(rating);
+		builder.append(", title=");
+		builder.append(title);
+		builder.append(", text=");
+		builder.append(text);
+		builder.append(", crawlDate=");
+		builder.append(crawlDate);
+		builder.append(", item=");
+		builder.append(item);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }
