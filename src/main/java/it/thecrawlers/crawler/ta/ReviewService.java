@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class ReviewService {
@@ -32,6 +33,7 @@ public class ReviewService {
 	@Autowired
 	private ReviewDAO reviewDao;
 
+	@Transactional
 	public void processReviewPage(String url, String path, String htmlContent) {
 		if (parser.isItemReviewsPage(path)) {
 			//parse item
@@ -39,6 +41,7 @@ public class ReviewService {
 			
 			//if item exists in db then use version stored in db
 			if (itemDao.exists(item.getId())) {
+				logger.debug("Item exists in DB, updating item with id = {}", item.getId());
 				item = itemDao.findOne(item.getId());
 				item.setCrawlDate(new Date());
 				//TODO:update also other fields if changed
@@ -57,11 +60,13 @@ public class ReviewService {
 					if (!item.getReviews().contains(review))
 						revStringList.add(review.getId());
 				}				
-			} else {			
-				//no reviews exists for thir item so fetch all
+				logger.debug("Fetching full reviews for non-existing items[{}]: {}", revStringList.size(), revStringList.toString());
+			} else {
+				//no reviews exists for this item so fetch all
 				for (Review review : reviews) {
 					revStringList.add(review.getId());
 				}
+				logger.debug("Fetching full reviews for all[{}]: {}", revStringList.size(), revStringList.toString());
 			}
 			
 			String expandedUserReviewHtml = null;
@@ -74,16 +79,7 @@ public class ReviewService {
 			if (expandedUserReviewHtml != null)
 				parser.parseExpandedUserReview(expandedUserReviewHtml, reviews);
 
-			if (item.getReviews().isEmpty()) {
-				item.getReviews().addAll(reviews);
-			} else {
-				for (Review review : reviews) {
-					//it should always be true that review does not exists
-					if (!reviewDao.exists(review.getId())) {
-						item.getReviews().add(review);
-					}
-				}
-			}
+			item.getReviews().addAll(reviews);
 			item = itemDao.save(item);
 
 		}

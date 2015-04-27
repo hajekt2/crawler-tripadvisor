@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
@@ -20,7 +19,6 @@ public class TACrawlHandlerImpl implements CrawlHandler {
 	private ReviewService reviewService;
 	
 	@Override
-	@Transactional
 	public void processPage(Page page) {
 		String path = page.getWebURL().getPath();
 		String url = page.getWebURL().getURL().toString();

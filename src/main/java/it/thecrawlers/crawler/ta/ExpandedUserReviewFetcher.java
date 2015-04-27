@@ -15,7 +15,8 @@ public class ExpandedUserReviewFetcher {
 
 	private static final Logger logger = LoggerFactory.getLogger(ExpandedUserReviewFetcher.class);
 
-	public String getExpandedUserReview(String itemId, String locationId, ArrayList<String> reviewIds) throws IOException {	
+	public String getExpandedUserReview(String itemId, String locationId, ArrayList<String> reviewIds) throws IOException {
+		if (reviewIds.isEmpty()) return null;
 		String url = "http://no.tripadvisor.com/ExpandedUserReviews-"+locationId+"-"+itemId+"?target="+reviewIds.get(0)+"&context=0&reviews="+StringUtils.join(reviewIds, ",")+"&servlet=Hotel_Review&expand=1";
 		logger.trace("Full Review query URL: {}", url);
 		return HttpClientPool.query(url);
