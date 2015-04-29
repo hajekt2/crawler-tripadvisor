@@ -100,7 +100,7 @@ public class ItemReviewsPageParser {
 			try {								
 				review.setId(reviewElement.getAttributeValue("id").substring(7)); // "review_1352800"
 				if (reviewElement.getChildElements().isEmpty()) { 
-					parsedReviews.add(review);					
+					//do no add such review - review is written in other language					
 					continue;
 				}
 
