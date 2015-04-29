@@ -26,7 +26,7 @@ public class TACrawlHandlerImpl implements CrawlHandler {
 			HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
 			String htmlContent = htmlParseData.getHtml();
 			try {
-				reviewService.processReviewPage(url, path, htmlContent);
+				reviewService.processPage(url, path, htmlContent);
 			} catch (Exception e) {
 				logger.error("Processing error: {}", e);
 				throw e;
