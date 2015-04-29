@@ -49,7 +49,8 @@ public class WriteCSV {
 			Iterable<Item> items = itemDao.findAll();
 			for (Item item : items) {
 				for (Review review : item.getReviews()) {
-	    			FileUtils.write(csvFile, START_SEP+
+	    			try {
+	    				FileUtils.write(csvFile, START_SEP+
 	    					review.getId()+SEP+
 	    					review.getAuthor().replaceAll("\\r\\n|\\r|\\n", " ")+SEP+
 	    					new SimpleDateFormat("yyyy-mm-dd").format(review.getDate())+SEP+
@@ -60,7 +61,11 @@ public class WriteCSV {
 	    					item.getName()+SEP+
 	    					item.getLocation().getId()+SEP+
 	    					item.getLocation().getName()+SEP+
-	    					item.getLocation().getFullName()+END_SEP, "ISO-8859-1", true);				
+	    					item.getLocation().getFullName()+END_SEP, "ISO-8859-1", true);
+	    			} catch (Exception e) {
+	    				logger.error("Error reading review id = "+review.getId(), e);
+	    			}
+	    				
 				}
 
 			}
