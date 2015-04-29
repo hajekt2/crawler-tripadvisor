@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -121,7 +122,8 @@ public class ItemReviewsPageParser {
 	public void parseExpandedUserReview(String expandedUserReviewHtml, Set<Review> reviews) {
 		Source source = new Source(expandedUserReviewHtml);
 
-		for (Review review : reviews) {
+		for (Iterator<Review> iterator = reviews.iterator(); iterator.hasNext();) {
+			Review review = iterator.next();
 			try {
 				Element reviewElement = source.getElementById("expanded_review_" + review.getId());
 				review.setCrawlDate(new Date());
@@ -131,7 +133,8 @@ public class ItemReviewsPageParser {
 				review.setText(getReviewText(reviewElement));
 				review.setDate(getReviewCreationDate(reviewElement));
 			} catch (Exception e) {
-				logger.error("Parsing error on review ["+review.getId()+"]", e);
+				logger.error("Parsing error on review ["+review.getId()+"] ... removing it", e);
+				iterator.remove();
 			}
 		}		
 	}
