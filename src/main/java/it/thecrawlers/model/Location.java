@@ -112,5 +112,10 @@ public class Location {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	public String getFullName() {		
+		if (getParent() != null) return getName() + ", "+ getParent().getFullName();
+		else return getName();
+	}
 	
 }
