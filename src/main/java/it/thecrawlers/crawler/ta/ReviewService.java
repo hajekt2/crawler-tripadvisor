@@ -22,11 +22,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+
 @Component
 public class ReviewService {
 
 	static final Logger logger = LoggerFactory.getLogger(ReviewService.class);
 
+	//limit of how many review items can be queried in single request
+	static final int EX_USER_REVIEW_LIMIT = 20;
+	
 	@Autowired
 	private ItemReviewsPageParser parser;
 	@Autowired
@@ -63,37 +69,25 @@ public class ReviewService {
 
 		//parse review details (but not text since it is not always complete)
 		Set<Review> reviews = parser.parseReviews(htmlContent, path);
-		if (reviews.isEmpty())
+		if (reviews.isEmpty()) {
+			logger.debug("No reviews found for item {}", item.getId());
 			return;
+		}
 
 		//create a list of full text reviews for ids that should be fetched
-		ArrayList<String> revStringList = new ArrayList<String>();
 		if (!item.getReviews().isEmpty()) {
-			//fetch only reviews that are not in db
+			//add only reviews that are not in db
 			for (Review review : reviews) {
 				if (!item.getReviews().contains(review))
-					revStringList.add(review.getId());
+					item.getReviews().add(review);
 			}				
-			logger.debug("Fetching full reviews for non-existing items[{}]: {}", revStringList.size(), revStringList.toString());
+			logger.debug("Added non existing reviews to DB, total is [{}]", item.getReviews().size());
 		} else {
-			//no reviews exists for this item so fetch all
-			for (Review review : reviews) {
-				revStringList.add(review.getId());
-			}
-			logger.debug("Fetching full reviews for all[{}]: {}", revStringList.size(), revStringList.toString());
-		}
-			
-		String expandedUserReviewHtml = null;
-		try {
-			expandedUserReviewHtml = reviewFetcher.getExpandedUserReview(item.getId(), item.getLocation().getId(),
-					revStringList);
-		} catch (IOException e) {
-			logger.error("Failed to retrieve ExpandedUserReview", e);
-		}
-		if (expandedUserReviewHtml != null)
-			parser.parseExpandedUserReview(expandedUserReviewHtml, reviews);
-
-		item.getReviews().addAll(reviews);
+			//no reviews exists for this item so add all
+			item.getReviews().addAll(reviews);
+			logger.debug("Added all reviews to DB [{}], total is [{}]", reviews.size(), item.getReviews().size());
+		}		
+		
 		item = itemDao.save(item);
 	}
 	
@@ -111,15 +105,6 @@ public class ReviewService {
 			logger.debug("Location does not found in DB, id = {}", locationMap.lastKey());
 			//store new location into DB
 			//start from the most general location
-//			for( int i = locationMap.size() -1; i >= 0 ; i --){
-//			    String locationId = locationMap.get(i);
-//				if (!locationDao.exists(locationId)) {
-//					logger.trace("Creating new location = {}, {}", locationId, locationMap.get(locationId));
-//					parentLocation = new Location(locationId, locationMap.get(locationId), parentLocation);
-//				} else {
-//					parentLocation = locationDao.findOne(locationId);
-//				}
-//			}
 			for(String locationId : locationMap.keySet()) {
 				if (!locationDao.exists(locationId)) {
 					logger.trace("Creating new location = {}, {}", locationId, locationMap.get(locationId));
@@ -133,6 +118,53 @@ public class ReviewService {
 		return parentLocation;
 	}
 
+	@Transactional
+	public void processReviews(Item item) {
+		
+		ArrayList<Review> reviewList = new ArrayList<Review>(item.getReviews());
+		
+		int steps = item.getReviews().size() / EX_USER_REVIEW_LIMIT;
+		if (item.getReviews().size() % EX_USER_REVIEW_LIMIT != 0) steps++;
+		int max;
+		
+		for (int i = 0; i < steps; i++) {
+	        //build string list of review ids
+			ArrayList<String> reviewStringList = new ArrayList<String>();
+			logger.debug("Processing reviews in step {} of {}", i+1, steps);
+			
+			if (item.getReviews().size() < (i+1)*EX_USER_REVIEW_LIMIT) max = item.getReviews().size();
+			else max = (i+1)*EX_USER_REVIEW_LIMIT;
+			for (int j = (i*EX_USER_REVIEW_LIMIT); j < max; j++) {
+	            reviewStringList.add(reviewList.get(j).getId());				
+	        }
+			
+			String expandedUserReviewHtml = null;
+			try {
+				expandedUserReviewHtml = reviewFetcher.getExpandedUserReview(item.getId(), item.getLocation().getId(),
+						reviewStringList);
+			} catch (IOException e) {
+				logger.error("Failed to retrieve ExpandedUserReview", e);
+			}
+			if (expandedUserReviewHtml != null)
+				parser.parseExpandedUserReview(expandedUserReviewHtml, item.getReviews());
+			
+		}
+
+		item = itemDao.save(item);
+	}
+		
+	@Transactional
+	public void processReviewsForAllItems() {
+		Iterable<Item> allItems = itemDao.findAll();
+		int position = 1;
+		for (Item item : allItems) {
+			logger.debug("Processing item id [{}] for all reviews: {} of {}", item.getId(), position, Iterables.size(allItems));
+			processReviews(item);
+//			itemDao.save(item);
+			position++;
+		}
+	}
+	
 	private void saveStringToFile(File folder, String path, String htmlContent) {
 		String fileNameFormPath = path.replaceAll("[^a-zA-Z0-9.-]", "_");
 		try {

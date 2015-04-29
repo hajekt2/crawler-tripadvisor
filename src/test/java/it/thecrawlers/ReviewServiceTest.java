@@ -41,6 +41,7 @@ public class ReviewServiceTest {
 	LocationDAO locationDao;
 	
 	@Test
+	@Transactional
 	public void processReviewPageTest() throws IOException {
 		URL testFileUrl = getClass().getResource("/" + reviewFileName);
 
@@ -50,6 +51,8 @@ public class ReviewServiceTest {
 		Item item = Iterables.get(result, 0);
 		logger.debug(item.toString());
 		
+		reviewService.processReviews(item);
+		logger.debug(item.toString());		
 	}
 
 	@Test

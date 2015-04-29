@@ -124,12 +124,14 @@ public class ItemReviewsPageParser {
 		for (Review review : reviews) {
 			try {
 				Element reviewElement = source.getElementById("expanded_review_" + review.getId());
-				review.setCrawlDate(new Date());
-				review.setAuthor(getReviewAuthor(reviewElement));
-				review.setRating(getReviewRating(reviewElement, review));
-				review.setTitle(getReviewTitle(reviewElement));
-				review.setText(getReviewText(reviewElement));
-				review.setDate(getReviewCreationDate(reviewElement));
+				if (reviewElement != null) {
+					review.setCrawlDate(new Date());
+					review.setAuthor(getReviewAuthor(reviewElement));
+					review.setRating(getReviewRating(reviewElement, review));
+					review.setTitle(getReviewTitle(reviewElement));
+					review.setText(getReviewText(reviewElement));
+					review.setDate(getReviewCreationDate(reviewElement));
+				}
 			} catch (Exception e) {
 				logger.error("Parsing error on review ["+review.getId()+"]", e);
 			}
