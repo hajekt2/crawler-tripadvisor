@@ -111,15 +111,6 @@ public class ReviewService {
 			logger.debug("Location does not found in DB, id = {}", locationMap.lastKey());
 			//store new location into DB
 			//start from the most general location
-//			for( int i = locationMap.size() -1; i >= 0 ; i --){
-//			    String locationId = locationMap.get(i);
-//				if (!locationDao.exists(locationId)) {
-//					logger.trace("Creating new location = {}, {}", locationId, locationMap.get(locationId));
-//					parentLocation = new Location(locationId, locationMap.get(locationId), parentLocation);
-//				} else {
-//					parentLocation = locationDao.findOne(locationId);
-//				}
-//			}
 			for(String locationId : locationMap.keySet()) {
 				if (!locationDao.exists(locationId)) {
 					logger.trace("Creating new location = {}, {}", locationId, locationMap.get(locationId));
