@@ -145,8 +145,11 @@ public class ItemReviewsPageParser {
 	}
 
 	private String getReviewTitle(Element reviewElement) {
-		return reviewElement.getFirstElementByClass("quote").getContent()
+		String title = reviewElement.getFirstElementByClass("quote").getContent()
 				.getFirstElement().getContent().getRenderer().toString();
+		//removes quotes
+		title = title.substring(1, title.length() - 1);
+		return title;
 	}
 
 	private String getReviewAuthor(Element reviewElement) {

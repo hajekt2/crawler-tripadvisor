@@ -78,7 +78,6 @@ public class WriteCSV {
 
 	private static String formatTitle(String title) {
 		title = title.replaceAll("\\r\\n|\\r|\\n", " ");
-		title = title.substring(1, title.length() - 1);
 		return title;
 	}
 }
