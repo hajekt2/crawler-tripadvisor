@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class HttpClientPool {
-	private static final Logger log = LoggerFactory.getLogger(HttpClientPool.class);
+	private static final Logger logger = LoggerFactory.getLogger(HttpClientPool.class);
 
 	// Single-element enum to implement Singleton.
 	private static enum Singleton {
@@ -104,7 +104,7 @@ public final class HttpClientPool {
 					// long.
 					cm.closeIdleConnections(60, TimeUnit.SECONDS);
 					// Look at pool stats.
-					log.trace("Stats: {}", cm.getTotalStats());
+					logger.trace("Stats: {}", cm.getTotalStats());
 				}
 				// Acknowledge the stop request.
 				stopRequest.stopped();
@@ -114,7 +114,7 @@ public final class HttpClientPool {
 		}
 
 		public void shutdown() throws InterruptedException {
-			log.trace("Shutting down client pool");
+			logger.trace("Shutting down client pool");
 			// Signal the stop to the thread.
 			Stop stop = new Stop();
 			stopSignal.add(stop);
@@ -122,7 +122,7 @@ public final class HttpClientPool {
 			stop.waitForStopped();
 			// Close the connection manager.
 			cm.close();
-			log.trace("Client pool shut down");
+			logger.trace("Client pool shut down");
 		}
 
 	}
@@ -152,7 +152,7 @@ public final class HttpClientPool {
 			// Just get.
 			request = new HttpGet(url);
 		}
-		log.debug("> " + url + (q == null ? "" : " " + q));
+		logger.debug("> " + url + (q == null ? "" : " " + q));
 		// Post it and wait.
 		return readResponse(request, HttpClientPool.getClient().execute(request));
 	}
@@ -169,7 +169,7 @@ public final class HttpClientPool {
 				if (entity != null) {
 					InputStream content = entity.getContent();
 					if (content != null) { 
-						result = IOUtils.toString(content);
+						result = IOUtils.toString(content, "UTF-8");
 						content.close();
 					}
 					EntityUtils.consume(entity);
@@ -184,9 +184,9 @@ public final class HttpClientPool {
 		}
 
 		if (result == null) {
-			log.trace("< {null}");
+			logger.trace("< {null}");
 		} else {
-			log.trace("< {}", result.toString());
+			logger.trace("< {}", result.toString());
 		}
 		return result;
 	}
