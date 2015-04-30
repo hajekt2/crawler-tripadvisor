@@ -48,7 +48,7 @@ public class ItemReviewsPageParserTest {
 
 		Set<Review> parseReviews = parser.parseReviews(FileUtils.readFileToString(new File(testFileUrl.getPath())), reviewFileName);		
 		logger.debug(Arrays.toString(parseReviews.toArray()));		
-		assertEquals(10, parseReviews.size());
+		assertEquals(4, parseReviews.size());
 	}
 	
 	@Test

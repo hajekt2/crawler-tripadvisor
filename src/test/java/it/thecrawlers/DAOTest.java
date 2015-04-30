@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Iterables;
 
@@ -27,6 +28,7 @@ public class DAOTest {
 	ItemDAO itemDao;
 	
 	@Test
+	@Transactional
 	public void testSave() throws IOException {
 		Item item = new Item();
 		item.setId("1");
