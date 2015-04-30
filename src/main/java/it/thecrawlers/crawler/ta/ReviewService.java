@@ -16,9 +16,11 @@ import java.util.Set;
 
 import org.apache.commons.collections4.map.LinkedMap;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,12 +39,15 @@ public class ReviewService {
 	private ReviewDAO reviewDao;
 	@Autowired
 	private LocationDAO locationDao;
+	@Value("${outputFolder}")	
+	private File outputFolder;
 
 	@Transactional
-	public void processPage(String url, String path, String htmlContent) {
+	public void processPage(String url, String path, String htmlContent, String charSet) {
 		if (parser.isItemReviewsPage(path)) {
-			processReviewPage(url, path, htmlContent);
-//			saveStringToFile(new File("d:/temp/crawldata"), path, htmlContent);
+			if (outputFolder != null) {
+				saveStringToFile(outputFolder, path, htmlContent, charSet);
+			}
 		}
 	}
 
@@ -83,17 +88,21 @@ public class ReviewService {
 			logger.debug("Fetching full reviews for all[{}]: {}", revStringList.size(), revStringList.toString());
 		}
 			
-		String expandedUserReviewHtml = null;
-		try {
-			expandedUserReviewHtml = reviewFetcher.getExpandedUserReview(item.getId(), item.getLocation().getId(),
-					revStringList);
-		} catch (IOException e) {
-			logger.error("Failed to retrieve ExpandedUserReview", e);
+		if (revStringList.size() != 0) {
+			String expandedUserReviewHtml = null;
+			try {
+				expandedUserReviewHtml = reviewFetcher.getExpandedUserReview(item.getId(), item.getLocation().getId(),
+						revStringList);
+				if (outputFolder != null && StringUtils.isNotBlank(expandedUserReviewHtml) ) {
+					saveStringToFile(outputFolder, "ExpandedUserReview_"+item.getId()+"_"+StringUtils.join(revStringList, "-")+".html", expandedUserReviewHtml, "UTF-8");
+				}
+			} catch (IOException e) {
+				logger.error("Failed to retrieve ExpandedUserReview", e);
+			}
+			if (StringUtils.isNotBlank(expandedUserReviewHtml))
+				parser.parseExpandedUserReview(expandedUserReviewHtml, reviews);
+			item.getReviews().addAll(reviews);
 		}
-		if (expandedUserReviewHtml != null)
-			parser.parseExpandedUserReview(expandedUserReviewHtml, reviews);
-
-		item.getReviews().addAll(reviews);
 		item = itemDao.save(item);
 	}
 	
@@ -124,10 +133,11 @@ public class ReviewService {
 		return parentLocation;
 	}
 
-	private void saveStringToFile(File folder, String path, String htmlContent) {
+	private void saveStringToFile(File folder, String path, String htmlContent, String charSet) {
 		String fileNameFormPath = path.replaceAll("[^a-zA-Z0-9.-]", "_");
 		try {
-			FileUtils.writeStringToFile(new File(folder, fileNameFormPath), htmlContent);
+			logger.trace("Saving html content in {} with charset {}", fileNameFormPath, charSet);
+			FileUtils.writeStringToFile(new File(folder, fileNameFormPath), htmlContent, charSet);			
 		} catch (IOException e) {
 			logger.error("Cannot write page to the file", e);
 		}
