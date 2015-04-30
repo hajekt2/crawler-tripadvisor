@@ -55,7 +55,7 @@ public class WriteCSV {
 	    					review.getAuthor().replaceAll("\\r\\n|\\r|\\n", " ")+SEP+
 	    					new SimpleDateFormat("yyyy-mm-dd").format(review.getDate())+SEP+
 	    					review.getRating()+SEP+
-	    					formatTitle(review.getTitle())+SEP+
+	    					review.getTitle().replaceAll("\\r\\n|\\r|\\n", " ")+SEP+
 	    					review.getText().replaceAll("\\r\\n|\\r|\\n", " ")+SEP+
 	    					item.getId()+SEP+
 	    					item.getName()+SEP+
@@ -76,8 +76,4 @@ public class WriteCSV {
 
 	}
 
-	private static String formatTitle(String title) {
-		title = title.replaceAll("\\r\\n|\\r|\\n", " ");
-		return title;
-	}
 }
