@@ -28,6 +28,9 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
+				<excludes>
+					<exclude>*.properties</exclude>
+				</excludes>
 			</resource>
 		</resources>
 
@@ -73,6 +76,9 @@
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
+						<manifestEntries>
+							<Class-Path>./</Class-Path>
+						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
